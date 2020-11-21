@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Route, Switch, Redirect, Link } from "react-router-dom";
+import { Route, Switch, Link, Redirect } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -12,6 +12,9 @@ import { grey } from '@material-ui/core/colors';
 
 import AdventPage from './pages/AdventPage/AdventPage';
 import CountdownPage from './pages/CountdownPage/CountdownPage';
+import Page404 from './pages/404/404'
+
+import { DEC1, DEC25 } from './lib/adventApi'
 
 import drawerImage from './images/navidad.jpg'
 
@@ -24,7 +27,7 @@ const styles = {
     left: 12,
   },
   page: {
-    height: '100vh',
+    height: window.innerHeight,
     width: '100vw',
   },
   drawer: {
@@ -41,6 +44,19 @@ const styles = {
     }
   }
 };
+
+const AdventRoute = ({ children, ...rest }) => {
+  const day = rest.computedMatch.params.day;
+  return <Route
+    {...rest}
+    render={({ location }) => {
+      if (day >= DEC1 && day <= DEC25) {
+        return children;
+      }
+      return <Page404 />
+    }}
+  />
+}
 
 function App(props) {
   const [ isDrawerOpen, setIsDrawerOpen ] = useState(false);
@@ -83,8 +99,12 @@ function App(props) {
       <div className={classes.page}>
         <Switch>
           <Route path="/" exact component={AdventPage} />
-          <Route path="/advent/:day" component={AdventPage} />
+          <AdventRoute path="/advent/:day">
+            <AdventPage />
+          </AdventRoute>
           <Route path="/countdown" exact component={CountdownPage} />
+          <Route path="/404" exact component={Page404} />
+          <Redirect from="*" to="404" />
         </Switch>
       </div>
     </div>

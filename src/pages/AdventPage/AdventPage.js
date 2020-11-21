@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 
 import dayjs from 'dayjs';
 
-import getAdvent, { TOTAL_DAYS } from '../../lib/dates';
+import Gift from '../../components/Gift.js'
+
+import getAdvent, { TOTAL_DAYS, setLatestDay } from '../../lib/adventApi';
 
 const styles = {
   root: {
@@ -56,6 +58,17 @@ function AdventPage (props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ day ]);
 
+  const handleGiftOpen = () => {
+    setLatestDay(adventData.day);
+    setAdventdata({
+      ...adventData,
+      gift: {
+        ...adventData.gift,
+        isOpened: true,
+      }
+    })
+  }
+
   return <div className={classes.root}>
     <Container maxWidth="sm" classes={{ root: classes.container }}>
       {!adventData && <p>Loader</p>}
@@ -63,13 +76,19 @@ function AdventPage (props) {
         <Typography component="h1">{ adventData.name }</Typography>
         <Typography variant="body1">
           {adventData.verse.text}
-          <Typography variant="subtitle2">{ adventData.verse.location }</Typography>
+          <Typography variant="subtitle2" component="span">{ adventData.verse.location }</Typography>
         </Typography>
-        <p>{ adventData.challenge }</p>
-        <a href={adventData.gift.href} target="_blank" rel="noreferrer">{adventData.gift.text}</a>
+        <Gift
+          message={adventData.challenge}
+          link={adventData.gift.href}
+          linkText={adventData.gift.text}
+          isOpened={adventData.gift.isOpened}
+          canOpen={adventData.gift.canOpen}
+          onGiftOpen={handleGiftOpen}
+        />
       </div>}
       <Container maxWidth="sm" className={classes.bottomNavContainer}>
-        <div value={day || '1'} showLabels className={classes.bottomNav}>
+        <div value={day || '1'} className={classes.bottomNav}>
           {list.map(index => (
             <Link key={`day-${index}`} to={`/advent/${index}`} className={classes.bottomNavItem}>
               <p>{index}</p>
@@ -81,5 +100,4 @@ function AdventPage (props) {
   </div>
 }
 
-
-export default withStyles(styles)(AdventPage);;
+export default withStyles(styles)(AdventPage);
