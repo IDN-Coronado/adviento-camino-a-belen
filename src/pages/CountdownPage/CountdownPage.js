@@ -35,7 +35,7 @@ const getTimeToXMas = (time) => {
   }
 };
 
-function HomePage (props) {
+function CountdownPage (props) {
   const now = dayjs()
   const [ state, setState ] = useState(getTimeToXMas(now));
   const { classes } = props;
@@ -58,4 +58,4 @@ function HomePage (props) {
 }
 
 
-export default withStyles(styles)(HomePage);
+export default withStyles(styles)(CountdownPage);

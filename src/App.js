@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, Link } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -9,9 +9,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { grey } from '@material-ui/core/colors';
-import { Link } from "react-router-dom";
 
-import HomePage from './pages/HomePage/HomePage';
+import AdventPage from './pages/AdventPage/AdventPage';
 import CountdownPage from './pages/CountdownPage/CountdownPage';
 
 import drawerImage from './images/navidad.jpg'
@@ -60,12 +59,12 @@ function App(props) {
       >
         <img src={drawerImage} alt="Santa y su reno" className={classes.drawer} />
         <List>
-          <Link to="/" className={classes.link}>
+          <Link to="/" className={classes.link} onClick={toggleDrawer}>
             <ListItem button key={'Adviento'}>
               <ListItemText primary="Adviento" />
             </ListItem>
           </Link>
-          <Link to="/countdown" className={classes.link}>
+          <Link to="/countdown" className={classes.link} onClick={toggleDrawer}>
             <ListItem button key={'Cuenta regresiva'}>
               <ListItemText primary="Cuenta Regresiva" />
             </ListItem>
@@ -83,7 +82,8 @@ function App(props) {
       </IconButton>
       <div className={classes.page}>
         <Switch>
-          <Route path="/" exact component={HomePage} />
+          <Route path="/" exact component={AdventPage} />
+          <Route path="/advent/:day" component={AdventPage} />
           <Route path="/countdown" exact component={CountdownPage} />
         </Switch>
       </div>
