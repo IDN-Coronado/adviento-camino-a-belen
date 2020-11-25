@@ -80,7 +80,7 @@ function App(props) {
               <ListItemText primary="Adviento" />
             </ListItem>
           </Link>
-          <Link to="/countdown" className={classes.link} onClick={toggleDrawer}>
+          <Link to="/cuenta-regresiva" className={classes.link} onClick={toggleDrawer}>
             <ListItem button key={'Cuenta regresiva'}>
               <ListItemText primary="Cuenta Regresiva" />
             </ListItem>
@@ -99,10 +99,10 @@ function App(props) {
       <div className={classes.page}>
         <Switch>
           <Route path="/" exact component={AdventPage} />
-          <AdventRoute path="/advent/:day">
+          <AdventRoute path="/adviento/:day">
             <AdventPage />
           </AdventRoute>
-          <Route path="/countdown" exact component={CountdownPage} />
+          <Route path="/cuenta-regresiva" exact component={CountdownPage} />
           <Route path="/404" exact component={Page404} />
           <Redirect from="*" to="404" />
         </Switch>
