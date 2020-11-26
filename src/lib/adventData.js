@@ -170,7 +170,166 @@ const data = {
 		gift: {
 			href: 'https://drive.google.com/file/d/1hOo5xJpOp0-A6oiibYt6rgYsf4v17bJP/view?usp=sharing',
 			text: 'Acá les dejamos esta de galletas'
-		}
+		},
+	},
+	'2020-12-14': {
+		date: '2020-12-14',
+		day: '14',
+		name: '14 Diciembre',
+		verse: {
+			text: 'Gloria a Dios en las alturas, y en la tierra paz a los que gozan de su buena voluntad.',
+			location: 'Lucas 2:14'
+		},
+		challenge: 'Escribe una nota para cada persona de tu casa, deseándoles cosas buenas y recordándoles que Dios les ama.',
+		gift: {}
+	},
+	'2020-12-15': {
+		date: '2020-12-15',
+		day: '15',
+		name: '15 Diciembre',
+		verse: {
+			text: 'Y aconteció que cuando los ángeles se fueron al cielo, los pastores se decían unos a otros: Vayamos, pues, hasta Belén y veamos esto que ha sucedido, que el Señor nos ha dado a saber. Fueron a toda prisa, y hallaron a María y a José, y al Niño acostado en el pesebre.',
+			location: 'Lucas 2:15-16'
+		},
+		challenge: 'Jueguen un juego en familia.',
+		gift: {
+			href: 'https://drive.google.com/file/d/1IH2EAAi2Rf1__gvLRD8E95UiEBqRz66O/view?usp=sharing',
+			text: 'Acá te dejamos un bingo por si lo quieres imprimir.'
+		},
+	},
+	'2020-12-16': {
+		date: '2020-12-16',
+		day: '16',
+		name: '16 Diciembre',
+		verse: {
+			text: 'Los pastores regresaron glorificando y alabando a Dios por lo que habían visto y oído, pues todo sucedió tal como se les había dicho.',
+			location: 'Lucas 2:20'
+		},
+		challenge: 'Escribe tu testimonio, lo que Dios ha hecho por Dios y cómo el que haya nacido en tu corazón te ha cambiado y compártelo en tus redes sociales o por mensaje.',
+		gift: {},
+	},
+	'2020-12-17': {
+		date: '2020-12-17',
+		day: '17',
+		name: '17 Diciembre',
+		verse: {
+			text: 'Y entrando en la casa, vieron al Niño con su madre María, y postrándose le adoraron; y abriendo sus tesoros le presentaron obsequios de oro, incienso y mirra.',
+			location: 'Mateo 2:11'
+		},
+		challenge: '¿Cuánto sabes del nacimiento de Jesús?',
+		gift: {
+			href: 'https://drive.google.com/file/d/1NQS9IgOPf0eA_G7506KBjPtzd_LRW9YO/view?usp=sharing',
+			text: ' Llena esta sopa de letras.'
+		},
+	},
+	'2020-12-18': {
+		date: '2020-12-18',
+		day: '18',
+		name: '18 Diciembre',
+		verse: {
+			text: '¿Dónde está el Rey de los judíos que ha nacido? Porque vimos su estrella en el oriente y hemos venido a adorarle.',
+			location: 'Mateo 2:2'
+		},
+		challenge: 'Si tienes la oportunidad de donar comida, ropa o dinero a los que necesitan, no lo dudes.',
+		gift: {},
+	},
+	'2020-12-19': {
+		date: '2020-12-19',
+		day: '19',
+		name: '19 Diciembre',
+		verse: {
+			text: 'Y el Verbo se hizo carne, y habitó entre nosotros, y vimos su gloria, gloria como del unigénito del Padre, lleno de gracia y de verdad.',
+			location: 'Juan 1:14'
+		},
+		challenge: '¿Puedes encontrar todos los objetos?',
+		gift: {
+			href: 'https://drive.google.com/file/d/1NyWX9YtbXw8pRwLizZ_M-44k_1MkjB4i/view?usp=sharing',
+			text: 'Búscalos acá'
+		},
+	},
+	'2020-12-20': {
+		date: '2020-12-20',
+		day: '20',
+		name: '20 Diciembre',
+		verse: {
+			text: 'Pero cuando vino la plenitud del tiempo, Dios envió a su Hijo, nacido de mujer, nacido bajo la ley, a fin de que redimiera a los que estaban bajo la ley, para que recibiéramos la adopción de hijos.',
+			location: 'Gálatas 4:4-5'
+		},
+		challenge: 'XXXXXXX',
+		gift: {
+			href: 'XXXXXX',
+			text: 'XXXX'
+		},
+	},
+	'2020-12-21': {
+		date: '2020-12-21',
+		day: '21',
+		name: '21 Diciembre',
+		verse: {
+			text: 'La actitud de ustedes debe ser como la de Cristo Jesús, quien, siendo por naturaleza Dios, no consideró el ser igual a Dios como algo a qué aferrarse. Por el contrario, se rebajó voluntariamente, tomando la naturaleza de siervo y haciéndose semejante a los seres humanos. Y, al manifestarse como hombre, se humilló a sí mismo y se hizo obediente hasta la muerte, ¡y muerte de cruz! ',
+			location: 'Filipenses 2:5-8'
+		},
+		challenge: 'Para estos fríos te regalamos esta receta sencilla.',
+		gift: {
+			href: 'https://drive.google.com/file/d/11NnnjtjwFJ1Mk8c3CDkKe8aKOjSLF94R/view?usp=sharing',
+			text: 'Chocolate caliente'
+		},
+	},
+	'2020-12-22': {
+		date: '2020-12-22',
+		day: '22',
+		name: '22 Diciembre',
+		verse: {
+			text: '...así como Cristo amó a la iglesia y se entregó por ella para hacerla santa. Él la purificó, lavándola con agua mediante la palabra, para presentársela a sí mismo como una iglesia radiante, sin mancha ni arruga ni ninguna otra imperfección, sino santa e intachable. ',
+			location: 'Efesios 5:25-27'
+		},
+		challenge: 'Para tus regalos navideños te dejamos estas colillas navideñas',
+		gift: {
+			href: 'https://drive.google.com/drive/folders/1XZNGzfCNHmWmyA6QPgX86BGM1HIlOx4P?usp=sharing',
+			text: 'Colillas'
+		},
+	},
+	'2020-12-23': {
+		date: '2020-12-23',
+		day: '23',
+		name: '23 Diciembre',
+		verse: {
+			text: 'A lo suyo vino, y los suyos no le recibieron. Mas a todos los que le recibieron, a los que creen en su nombre, les dio potestad de ser hechos hijos de Dios; los cuales no son engendrados de sangre, ni de voluntad de carne, ni de voluntad de varón, sino de Dios.',
+			location: 'Juan 1:11-13'
+		},
+		challenge: 'Mira formas diferentes de envolver regalos',
+		gift: {
+			href: 'https://www.youtube.com/watch?v=Ucrld9WIKK0',
+			text: 'Video'
+		},
+	},
+	'2020-12-24': {
+		date: '2020-12-24',
+		day: '24',
+		name: '24 Diciembre',
+		verse: {
+			text: 'Yo les he dado la gloria que me diste, para que sean uno, así como nosotros somos uno: yo en ellos y tú en mí. Permite que alcancen la perfección en la unidad, y así el mundo reconozca que tú me enviaste y que los has amado a ellos tal como me has amado a mí.',
+			location: 'Juan 17:22-23'
+		},
+		challenge: 'Lea la siguiente historia navideña y piense ¿Qué tiene que ver Belén con vos? ¿Qué aporta ese nacimiento a mi vida?',
+		gift: {
+			href: 'https://www.sigueme.net/mensajes-cristianos/me-encanta-la-navidad-mensaje-por-max-lucado',
+			text: 'No olvides compartir esta historia'
+		},
+	},
+	'2020-12-25': {
+		date: '2020-12-25',
+		day: '25',
+		name: '25 Diciembre',
+		verse: {
+			text: 'El Cordero que fue inmolado es digno de tomar el poder, las riquezas, la sabiduría, la fortaleza, la honra, la gloria y la alabanza. Y a todo lo creado que está en el cielo, y sobre la tierra, y debajo de la tierra, y en el mar, y a todas las cosas que en ellos hay, oí decir: Al que está sentado en el trono, y al Cordero, sea la alabanza, la honra, la gloria y el poder, por los siglos de los siglos.',
+			location: 'Apocalipsis 5:12-13'
+		},
+		challenge: 'XXXXXX',
+		gift: {
+			href: 'XXXXXX',
+			text: 'XXXXXXXX'
+		},
 	},
 };
 
