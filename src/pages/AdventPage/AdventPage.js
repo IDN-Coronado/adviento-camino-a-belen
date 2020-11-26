@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, withRouter } from 'react-router-dom';
 import { makeStyles, styled } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
+import { useSwipeable } from 'react-swipeable';
 
 import dayjs from 'dayjs';
 
 import Gift from '../../components/Gift.js'
 
-import getAdvent, { TOTAL_DAYS, setLatestDay } from '../../lib/adventApi';
+import getAdvent, { TOTAL_DAYS, setLatestDay, DEC1, DEC25 } from '../../lib/adventApi';
 
 const BOTTOM_NAV_ITEM_WIDTH = 60;
 const CONTAINER_MAX_WIDTH = 600;
@@ -17,7 +18,7 @@ const CONTAINER_MAX_WIDTH = 600;
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    height: '100%',
+    height: `calc(100% - ${BOTTOM_NAV_ITEM_WIDTH}px)`,
   },
   container: {
     height: '100%',
@@ -26,6 +27,8 @@ const useStyles = makeStyles({
   bottomNavContainer: {
     position: 'absolute',
     bottom: 0,
+    right: 0,
+    left: 0,
     width: '100%',
     height: 60,
     padding: 0,
@@ -33,7 +36,6 @@ const useStyles = makeStyles({
   bottomNav: {
     height: 60,
     overflow: 'hidden',
-    overflowX: 'scroll',
   },
   bottomNavItem: {
     flex: 'none',
@@ -86,8 +88,15 @@ function AdventPage (props) {
     })
   }
 
+  const handlers = useSwipeable({
+    onSwipedLeft: (eventData) => props.history.push(`/adviento/${Number(day) === DEC25 ? DEC25 : Number(day) + 1}`),
+    onSwipedRight: (eventData) => props.history.push(`/adviento/${Number(day) === DEC1 ? DEC1 : Number(day) - 1}`),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: false
+  });
+
   return <div className={classes.root}>
-    <Container maxWidth="sm" classes={{ root: classes.container }}>
+    <Container maxWidth="sm" classes={{ root: classes.container }} {...handlers}>
       {!adventData && <p>Loader</p>}
       {adventData && <div>
         <Typography component="h1">{ adventData.name }</Typography>
@@ -104,21 +113,21 @@ function AdventPage (props) {
           onGiftOpen={handleGiftOpen}
         />
       </div>}
-      <Container maxWidth="sm" className={classes.bottomNavContainer}>
-        <div value={day || '1'} className={classes.bottomNav}>
-          <div className={classes.bottomNavInner}>
-            {list.map(index => (
-              <BottomLink key={`day-${index}`} isActive={Number(index) === Number(day || 1)}>
-                <Link to={`/adviento/${index}`} className={classes.bottomNavItem}>
-                  <p>{index}</p>
-                </Link>
-              </BottomLink>
-            ))}
-          </div>
+    </Container>
+    <Container maxWidth="sm" className={classes.bottomNavContainer}>
+      <div value={day || '1'} className={classes.bottomNav}>
+        <div className={classes.bottomNavInner}>
+          {list.map(index => (
+            <BottomLink key={`day-${index}`} isActive={Number(index) === Number(day || 1)}>
+              <Link to={`/adviento/${index}`} className={classes.bottomNavItem}>
+                <p>{index}</p>
+              </Link>
+            </BottomLink>
+          ))}
         </div>
-      </Container>
+      </div>
     </Container>
   </div>
 }
 
-export default AdventPage;
+export default withRouter(AdventPage);
