@@ -89,8 +89,8 @@ function AdventPage (props) {
   }
 
   const handlers = useSwipeable({
-    onSwipedLeft: (eventData) => props.history.push(`/adviento/${Number(day) === DEC25 ? DEC25 : Number(day) + 1}`),
-    onSwipedRight: (eventData) => props.history.push(`/adviento/${Number(day) === DEC1 ? DEC1 : Number(day) - 1}`),
+    onSwipedLeft: (eventData) => Number(day || 1) < DEC25 ? props.history.push(`/adviento/${Number(day || 1) + 1}`) : null,
+    onSwipedRight: (eventData) => Number(day || 1) > DEC1 ? props.history.push(`/adviento/${Number(day || 1) - 1}`) : null,
     preventDefaultTouchmoveEvent: true,
     trackMouse: false
   });
