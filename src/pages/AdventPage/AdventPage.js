@@ -15,6 +15,11 @@ import getAdvent, { TOTAL_DAYS, setLatestDay, DEC1, DEC25 } from '../../lib/adve
 const BOTTOM_NAV_ITEM_WIDTH = 60;
 const CONTAINER_MAX_WIDTH = 600;
 
+const getNavPosition = day => {
+  const width = window.innerWidth < CONTAINER_MAX_WIDTH ? window.innerWidth : CONTAINER_MAX_WIDTH;
+  return (width / 2) - (BOTTOM_NAV_ITEM_WIDTH / 2) - ((day - 1) * BOTTOM_NAV_ITEM_WIDTH)
+}
+
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -46,11 +51,12 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    boxSizing: 'border-box',
   },
   bottomNavInner: (day) => ({
     display: 'flex',
     height: '100%',
-    transform: `translateX(${(CONTAINER_MAX_WIDTH / 2) - (BOTTOM_NAV_ITEM_WIDTH / 2) - ((day - 1) * BOTTOM_NAV_ITEM_WIDTH)}px)`
+    transform: `translateX(${getNavPosition(day)}px)`
   })
 });
 
