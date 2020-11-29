@@ -86,6 +86,7 @@ function AdventPage (props) {
   const { day } = useParams();
   const botttomNavEl = useRef(null);
   const [ adventData, setAdventdata ] = useState(null);
+  const [ isOpeningGift, setIsOpeningGift ] = useState(false);
   const classes = useStyles(Number(day) || 1);
   const date = day ? dayjs(`2020-12-${day}`) : null;
 
@@ -100,13 +101,18 @@ function AdventPage (props) {
 
   const handleGiftOpen = () => {
     setLatestDay(adventData.day);
-    setAdventdata({
-      ...adventData,
-      gift: {
-        ...adventData.gift,
-        isOpened: true,
-      }
-    })
+    setIsOpeningGift(true);
+
+    setTimeout(()=>{
+      setAdventdata({
+        ...adventData,
+        gift: {
+          ...adventData.gift,
+          isOpened: true,
+        }
+      })
+    },2000);
+
   }
 
   const handlers = useSwipeable({
@@ -132,6 +138,7 @@ function AdventPage (props) {
           isOpened={adventData.gift.isOpened}
           canOpen={adventData.gift.canOpen}
           onGiftOpen={handleGiftOpen}
+          isOpening={isOpeningGift}
         />
       </div>}
     </Container>

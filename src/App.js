@@ -8,7 +8,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { grey } from '@material-ui/core/colors';
 
 import AdventPage from './pages/AdventPage/AdventPage';
 import CountdownPage from './pages/CountdownPage/CountdownPage';
@@ -36,13 +35,18 @@ const styles = {
     width: 250
   },
   paper: {
-    backgroundColor: grey[800]
+    backgroundColor: '#103044'
   },
   link: {
     textDecoration: 'none',
     color: '#fff',
     '&:visited, &:active': {
       color: '#fff'
+    }
+  },
+  navItem: {
+    '& span': {
+      marginBottom: 0
     }
   }
 };
@@ -79,7 +83,7 @@ function App(props) {
         <List>
           <Link to="/" className={classes.link} onClick={toggleDrawer}>
             <ListItem button key={'Adviento'}>
-              <ListItemText primary="Adviento" />
+              <ListItemText primary="Adviento" className={classes.navItem}/>
             </ListItem>
           </Link>
           <Link to="/cuenta-regresiva" className={classes.link} onClick={toggleDrawer}>

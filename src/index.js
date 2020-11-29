@@ -28,7 +28,8 @@ const theme = createMuiTheme({
     subtitle2: {
       fontFamily: 'BrandonGrotesqueBold, Helvetica, Arial',
       display: 'block',
-      marginTop: '.625rem'
+      marginTop: '.625rem',
+      color: '#db778f'
     },
     body1: {
       lineHeight: '1.2em',

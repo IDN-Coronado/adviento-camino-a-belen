@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, styled } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
@@ -36,22 +36,28 @@ const styles = {
 	}
 }
 
-function Gift ({ classes, message, link, type, linkText, onGiftOpen, canOpen, isOpened = false }) {
+const AnimatedSvg = styled('div')(
+  ({
+    isOpening
+  }) => ({
+  ...isOpening ? { 
+    'opacity': '0.5'
+  } : {}
+}));
+
+function Gift ({ classes, message, link, linkText, onGiftOpen, canOpen, isOpened = false, isOpening = false }) {
 	return isOpened ? (
 		<Fragment>
 			<Typography variant="body2" className={classes.mainText}>{ message }</Typography>
 			<Link variant="body2" color="secondary" href={link} target="_blank" rel="noreferrer">{linkText}</Link>
 		</Fragment>) : (
 		<button className={classes.button} disabled={!canOpen} type="button" onClick={onGiftOpen}>
-			<GiftSvg className={classes.giftSvg}/>
-			<img src={giftImage} alt="Gift" className={classes.buttonImg}/>
+			<AnimatedSvg isOpening={isOpening}>
+				<GiftSvg className={classes.giftSvg}/>
+			</AnimatedSvg>
 			{!canOpen && <p>Todavía no puedes abrir esta sorpresa</p>}
 		</button>
 	);
 }
-
-Gift.defaultProps = {
-	type: 'gift'
-};
 
 export default withStyles(styles)(Gift);
