@@ -80,6 +80,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  background: linear-gradient(0deg, #182d42 0%, #132735 100%);
 }
 ol, ul {
 	list-style: none;

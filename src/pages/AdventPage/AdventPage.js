@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, withRouter } from 'react-router-dom';
 import { makeStyles, styled } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -17,23 +17,17 @@ import navBgImage from '../../images/day-bg.png';
 const BOTTOM_NAV_ITEM_WIDTH = 60;
 const CONTAINER_MAX_WIDTH = 600;
 
-const getNavPosition = day => {
-  const width = window.innerWidth < CONTAINER_MAX_WIDTH ? window.innerWidth : CONTAINER_MAX_WIDTH;
-  return (width / 2) - (BOTTOM_NAV_ITEM_WIDTH / 2) - ((day - 1) * BOTTOM_NAV_ITEM_WIDTH)
-}
-
 const useStyles = makeStyles({
   root: {
     width: '100%',
     height: `calc(100% - ${BOTTOM_NAV_ITEM_WIDTH}px)`,
-    background: `url(${backgroundImage}) 0 0 no-repeat`,
-    backgroundSize: 'cover',
-    padding: '4.375rem 2.1875rem',
     color: '#fff',
   },
   container: {
     height: '100%',
-    padding: 0,
+    padding: '4.375rem 2.1875rem',
+    background: `url(${backgroundImage}) 0 0 no-repeat`,
+    backgroundSize: 'cover',
   },
   bottomNavContainer: {
     position: 'absolute',
@@ -43,8 +37,6 @@ const useStyles = makeStyles({
     width: '100%',
     height: 60,
     padding: 0,
-    background: '#224a57',
-    borderTop: '1px solid #ffffff'
   },
   bottomNav: {
     height: 59,
@@ -72,7 +64,6 @@ const useStyles = makeStyles({
   bottomNavInner: (day) => ({
     display: 'flex',
     height: '100%',
-    transform: `translateX(${getNavPosition(day)}px)`
   })
 });
 
@@ -93,13 +84,16 @@ const list = Array.from({length: TOTAL_DAYS}, (_, i) => i + 1);
 
 function AdventPage (props) {
   const { day } = useParams();
+  const botttomNavEl = useRef(null);
   const [ adventData, setAdventdata ] = useState(null);
   const classes = useStyles(Number(day) || 1);
   const date = day ? dayjs(`2020-12-${day}`) : null;
 
   useEffect(() => {
+    console.log('useEffect');
     getAdvent(date).then(data => {
-      setAdventdata(data)
+      setAdventdata(data);
+      botttomNavEl.current.scrollLeft = ((day - 1) * BOTTOM_NAV_ITEM_WIDTH) + (BOTTOM_NAV_ITEM_WIDTH / 2) - (CONTAINER_MAX_WIDTH / 2);
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ day ]);
@@ -141,19 +135,21 @@ function AdventPage (props) {
         />
       </div>}
     </Container>
-    <Container maxWidth="sm" className={classes.bottomNavContainer}>
-      <div value={day || '1'} className={classes.bottomNav}>
-        <div className={classes.bottomNavInner}>
-          {list.map(index => (
-            <BottomLink key={`day-${index}`} isActive={Number(index) === Number(day || 1)} isEven={Number(index) % 2 === 0} className={classes.bottomNavItem}>
-              <Link to={`/adviento/${index}`} className={classes.bottomNavLink}>
-                <p>{index}</p>
-              </Link>
-            </BottomLink>
-          ))}
+    <div>
+      <Container maxWidth="sm" className={classes.bottomNavContainer}>
+        <div value={day || '1'} className={classes.bottomNav} ref={botttomNavEl}>
+          <div className={classes.bottomNavInner}>
+            {list.map(index => (
+              <BottomLink key={`day-${index}`} isActive={Number(index) === Number(day || 1)} isEven={Number(index) % 2 === 0} className={classes.bottomNavItem}>
+                <Link to={`/adviento/${index}`} className={classes.bottomNavLink}>
+                  <p>{index}</p>
+                </Link>
+              </BottomLink>
+            ))}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   </div>
 }
 
