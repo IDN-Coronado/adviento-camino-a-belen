@@ -35,8 +35,8 @@ const getAdvent = day => {
 			const latestDay = getLatestDay();
 			const isOpened = latestDay.indexOf(adventData.day) >= 0;
 			adventData.gift.isOpened = isOpened;
-			adventData.gift.canOpen = (!(today.isBefore(firstDay, 'day') || today.isAfter(lastDay, 'day')) && (requiredDate.isBefore(today, 'day') || requiredDate.isSame(today, 'day')));
-			// adventData.gift.canOpen = true;
+			// adventData.gift.canOpen = (!(today.isBefore(firstDay, 'day') || today.isAfter(lastDay, 'day')) && (requiredDate.isBefore(today, 'day') || requiredDate.isSame(today, 'day')));
+			adventData.gift.canOpen = true;
 			return adventData;
 		});
 };

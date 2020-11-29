@@ -11,6 +11,8 @@ import dayjs from 'dayjs';
 import Gift from '../../components/Gift.js'
 
 import getAdvent, { TOTAL_DAYS, setLatestDay, DEC1, DEC25 } from '../../lib/adventApi';
+import backgroundImage from '../../images/bg@2x.png';
+import navBgImage from '../../images/day-bg.png';
 
 const BOTTOM_NAV_ITEM_WIDTH = 60;
 const CONTAINER_MAX_WIDTH = 600;
@@ -24,6 +26,10 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     height: `calc(100% - ${BOTTOM_NAV_ITEM_WIDTH}px)`,
+    background: `url(${backgroundImage}) 0 0 no-repeat`,
+    backgroundSize: 'cover',
+    padding: '4.375rem 2.1875rem',
+    color: '#fff',
   },
   container: {
     height: '100%',
@@ -37,21 +43,31 @@ const useStyles = makeStyles({
     width: '100%',
     height: 60,
     padding: 0,
+    background: '#224a57',
+    borderTop: '1px solid #ffffff'
   },
   bottomNav: {
-    height: 60,
-    overflow: 'hidden',
+    height: 59,
+    overflowX: 'scroll',
+    overflowY: 'hidden'
   },
   bottomNavItem: {
+    background:  `url(${navBgImage}) 0 0 no-repeat`,
+    backgroundColor: '#4f766c',
+  },
+  bottomNavLink: {
     flex: 'none',
     width: BOTTOM_NAV_ITEM_WIDTH,
     height: '100%',
-    border: '1px solid #000',
     margin: 0,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     boxSizing: 'border-box',
+    color: '#ffffff',
+    textDecoration: 'none',
+    fontFamily: 'BrandonGrotesqueRegular, Helvetica, Arial',
+    fontSize: '1.5625rem'
   },
   bottomNavInner: (day) => ({
     display: 'flex',
@@ -60,12 +76,17 @@ const useStyles = makeStyles({
   })
 });
 
-const BottomLink = styled('div')(({
-  isActive
-}) => ({
-  ...isActive ? {
-    'backgroundColor': 'red'
-  } : {}
+const BottomLink = styled('div')(
+  ({
+    isActive,
+    isEven,
+  }) => ({
+  ...isEven ? { 
+    'backgroundColor': '#AB5166'
+  } : {}, 
+  ...isActive ? { 
+    'backgroundColor': '#F3B02C'
+  } : {},
 }));
 
 const list = Array.from({length: TOTAL_DAYS}, (_, i) => i + 1);
@@ -105,7 +126,7 @@ function AdventPage (props) {
     <Container maxWidth="sm" classes={{ root: classes.container }} {...handlers}>
       {!adventData && <p>Loader</p>}
       {adventData && <div>
-        <Typography component="h1">{ adventData.name }</Typography>
+        <Typography variant="h1" component="h1">{ adventData.name }</Typography>
         <Typography variant="body1">
           {adventData.verse.text}
           <Typography variant="subtitle2" component="span">{ adventData.verse.location }</Typography>
@@ -124,8 +145,8 @@ function AdventPage (props) {
       <div value={day || '1'} className={classes.bottomNav}>
         <div className={classes.bottomNavInner}>
           {list.map(index => (
-            <BottomLink key={`day-${index}`} isActive={Number(index) === Number(day || 1)}>
-              <Link to={`/adviento/${index}`} className={classes.bottomNavItem}>
+            <BottomLink key={`day-${index}`} isActive={Number(index) === Number(day || 1)} isEven={Number(index) % 2 === 0} className={classes.bottomNavItem}>
+              <Link to={`/adviento/${index}`} className={classes.bottomNavLink}>
                 <p>{index}</p>
               </Link>
             </BottomLink>

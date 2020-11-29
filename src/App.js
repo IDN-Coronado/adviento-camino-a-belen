@@ -25,10 +25,12 @@ const styles = {
     position: 'absolute',
     top: 0,
     left: 12,
+    color: '#ffffff'
   },
   page: {
     height: window.innerHeight,
     width: '100vw',
+    
   },
   drawer: {
     width: 250
