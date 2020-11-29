@@ -11,7 +11,39 @@ import reportWebVitals from './reportWebVitals';
 const theme = createMuiTheme({
   palette: {
     type: 'dark',
+    primary: {
+      main: '#224A57',
+      dark: '#103044',
+      contrastText: '#ffffff'
+    },
+    secondary: {
+      main: '#F3B02C',
+      contrastText: '#103044'
+    }
   },
+  typography: {
+    fontFamily: 'BrandonGrotesqueRegular, Helvetica, Arial',
+    fontSize: 15.8,
+    lineHeight: '1.2em',
+    subtitle2: {
+      fontFamily: 'BrandonGrotesqueBold, Helvetica, Arial',
+      display: 'block',
+      marginTop: '.625rem'
+    },
+    body1: {
+      lineHeight: '1.2em',
+      marginBottom: '2.625rem'
+    },
+    body2: {
+      lineHeight: '1.2em',
+      marginBottom: '0.625rem'
+    },
+    h1: {
+      fontFamily: 'WreathHalftone, Helvetica, Arial',
+      color: '#f3b02c',
+      fontSize: '3.65rem'
+    }
+  }
 });
 
 ReactDOM.render(
