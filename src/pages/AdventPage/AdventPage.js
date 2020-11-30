@@ -13,6 +13,7 @@ import Gift from '../../components/Gift.js'
 import getAdvent, { TOTAL_DAYS, setLatestDay, DEC1, DEC25 } from '../../lib/adventApi';
 import backgroundImage from '../../images/bg@2x.png';
 import navBgImage from '../../images/day-bg.png';
+import incLogo from '../../images/inc-logo.svg';
 
 const BOTTOM_NAV_ITEM_WIDTH = 60;
 const BOTTOM_NAV_ITEM_HEIGHT = 60;
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
   },
   container: {
     height: '100%',
-    padding: '4.375rem 2.1875rem',
+    padding: '4.375rem 2.875em',
     background: `url(${backgroundImage}) 0 0 no-repeat`,
     backgroundSize: 'cover',
   },
@@ -89,7 +90,14 @@ const useStyles = makeStyles({
   bottomNavInner: (day) => ({
     display: 'flex',
     height: '100%',
-  })
+  }),
+  incLogoImg: {
+    position: 'absolute',
+    right: '1.875rem',
+    top: '.75rem',
+    width: '4.6875rem',
+    height: 'auto'
+  }
 });
 
 const BottomLink = styled('div')(
@@ -151,6 +159,7 @@ function AdventPage (props) {
     <Container maxWidth="sm" classes={{ root: classes.container }} {...handlers}>
       {!adventData && <p>Loader</p>}
       {adventData && <div>
+        <img src={incLogo} alt="INC Logo" className={classes.incLogoImg}/>
         {Number(day || 1) !== DEC1 ? <Link to={`/adviento/${Number(day || 1) - 1}`} className={classes.arrowLeft}></Link> : null}
         {Number(day || 1) !== DEC25 ? <Link to={`/adviento/${Number(day || 1) + 1}`} className={classes.arrowRight}></Link> : null }
         <Typography variant="h1" component="h1">{ adventData.name }</Typography>

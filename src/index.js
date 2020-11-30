@@ -33,16 +33,27 @@ const theme = createMuiTheme({
     },
     body1: {
       lineHeight: '1.2em',
-      marginBottom: '2.625rem'
+      marginBottom: '2.625rem',
+      '@media only screen and (max-width: 350px)': {
+        lineHeight: '1.1em',
+        fontSize: '1rem'
+      }
     },
     body2: {
       lineHeight: '1.2em',
-      marginBottom: '0.625rem'
+      marginBottom: '0.625rem',
+      '@media only screen and (max-width: 350px)': {
+        lineHeight: '1.1em',
+        fontSize: '1rem'
+      }
     },
     h1: {
       fontFamily: 'WreathHalftone, Helvetica, Arial',
       color: '#f3b02c',
-      fontSize: '3.65rem'
+      fontSize: '3.65rem',
+      '@media only screen and (max-width: 350px)': {
+        fontSize: '3rem'
+      }
     }
   }
 });
