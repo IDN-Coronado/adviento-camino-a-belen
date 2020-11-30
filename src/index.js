@@ -23,7 +23,7 @@ const theme = createMuiTheme({
   },
   typography: {
     fontFamily: 'BrandonGrotesqueRegular, Helvetica, Arial',
-    fontSize: 15.8,
+    fontSize: 15,
     lineHeight: '1.2em',
     subtitle2: {
       fontFamily: 'BrandonGrotesqueBold, Helvetica, Arial',
@@ -33,7 +33,7 @@ const theme = createMuiTheme({
     },
     body1: {
       lineHeight: '1.2em',
-      marginBottom: '2.625rem',
+      marginBottom: '2.1875rem',
       '@media only screen and (max-width: 350px)': {
         lineHeight: '1.1em',
         fontSize: '1rem'
