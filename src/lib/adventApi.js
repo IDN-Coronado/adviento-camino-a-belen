@@ -10,22 +10,50 @@ export const DEC25 = 25;
 
 export const setLatestDay = day => {
 	const latestDay = JSON.parse(localStorage.getItem('latestDay')) || [];
-	latestDay.push(day);
+	latestDay.push(Number(day));
+	latestDay.sort();
 	localStorage.setItem('latestDay', JSON.stringify(latestDay));
 }
 
-const getLatestDay = () => JSON.parse(localStorage.getItem('latestDay')) || [];
+export const getOpenedDays = () => JSON.parse(localStorage.getItem('latestDay')) || [];
+
+const getLatestDay = () => {
+	const savedData = JSON.parse(localStorage.getItem('latestDay')) || [];
+	return savedData.reduce((a, v) => (Number(v) > Number(a)) ? Number(v) : Number(a), 0);
+};
+
+const getFirstUnopenedDay = () => {
+	const openedDays = getOpenedDays();
+	let i = 0;
+	while (i <= DEC25) {
+		if (openedDays[i] !== (i + 1)) {
+			return i + 1;
+		}
+		i++;
+	}
+	return DEC25;
+}
 
 const getDateKey = day => {
-	const latestDay = localStorage.getItem('latestDay');
-	const currentDate = day || (latestDay ? dayjs(`2020-12-${latestDay}`) : dayjs());
-	const isDayBefore = currentDate.isBefore(firstDay, 'day');
-	const isDayAfter = currentDate.isAfter(lastDay, 'day');
-	const date = isDayBefore ? firstDay : (isDayAfter ? lastDay : currentDate);
+	// const latestDay = localStorage.getItem('latestDay');
+	// const currentDate = day || (latestDay ? dayjs(`2020-12-${latestDay}`) : dayjs());
+	const isDayBefore = day.isBefore(firstDay, 'day');
+	const isDayAfter = day.isAfter(lastDay, 'day');
+	const date = isDayBefore ? firstDay : (isDayAfter ? lastDay : day);
 	return date.format(DATE_FORMAT);
 }
 
-const getAdvent = day => {
+export const getTodayOrLatest = day => {
+	const now = dayjs();
+	const isDecember = now.month() === 11; //in dayjs january starts is month 0
+	const date = isDecember ? now.date() : DEC1;
+	const openedDays = getOpenedDays();
+	const isCurrentDayOpened = openedDays.indexOf(date) >= 0;
+	const unopenedDay = isCurrentDayOpened ? getFirstUnopenedDay() : date;
+	return unopenedDay >= DEC1 && unopenedDay <= DEC25 ? unopenedDay : DEC1;
+}
+
+const getAdvent = (day, isDevelopmentMode) => {
 	const today = dayjs();
 	const dateKey = getDateKey(day);
 	const requiredDate = dayjs(dateKey);
@@ -33,10 +61,9 @@ const getAdvent = day => {
 		.then(data => {
 			const adventData = data.default[dateKey];
 			const latestDay = getLatestDay();
-			const isOpened = latestDay.indexOf(adventData.day) >= 0;
+			const isOpened = latestDay === Number(adventData.day);
 			adventData.gift.isOpened = isOpened;
-			// adventData.gift.canOpen = (!(today.isBefore(firstDay, 'day') || today.isAfter(lastDay, 'day')) && (requiredDate.isBefore(today, 'day') || requiredDate.isSame(today, 'day')));
-			adventData.gift.canOpen = true;
+			adventData.gift.canOpen = isDevelopmentMode || (!(today.isBefore(firstDay, 'day') || today.isAfter(lastDay, 'day')) && (requiredDate.isBefore(today, 'day') || requiredDate.isSame(today, 'day')));
 			return adventData;
 		});
 };

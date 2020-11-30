@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Route, Switch, Link, Redirect } from "react-router-dom";
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,24 +13,27 @@ import AdventPage from './pages/AdventPage/AdventPage';
 import CountdownPage from './pages/CountdownPage/CountdownPage';
 import Page404 from './pages/404/404'
 
-import { DEC1, DEC25 } from './lib/adventApi'
+import { DEC1, DEC25, getTodayOrLatest } from './lib/adventApi';
 
-import drawerImage from './images/navidad.jpg'
+import drawerImage from './images/navidad.jpg';
+import incLogo from './images/inc-logo.svg';
 
 import './App.css';
 
-const styles = {
+const useStyles = makeStyles({
   hamburger: {
     position: 'absolute',
     top: 0,
     left: 12,
-    color: '#ffffff'
+    color: '#ffffff',
+    zIndex: 30,
   },
-  page: {
-    height: window.innerHeight,
+  page: size => ({
+    height: size.height,
     width: '100vw',
-    
-  },
+    minHeight: '600px',
+    position: 'relative',
+  }),
   drawer: {
     width: 250
   },
@@ -48,11 +51,18 @@ const styles = {
     '& span': {
       marginBottom: 0
     }
+  },
+  incLogoImg: {
+    position: 'absolute',
+    bottom: '20px',
+    width: '40%',
+    left: '50%',
+    transform: 'translateX(-50%)',
   }
-};
+});
 
 const AdventRoute = ({ children, ...rest }) => {
-  const day = rest.computedMatch.params.day;
+  const day = rest.computedMatch.params.day || getTodayOrLatest();
   return <Route
     {...rest}
     render={({ location }) => {
@@ -66,7 +76,8 @@ const AdventRoute = ({ children, ...rest }) => {
 
 function App(props) {
   const [ isDrawerOpen, setIsDrawerOpen ] = useState(false);
-  const { classes } = props;
+  const size = useWindowSize();
+  const classes = useStyles(size);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -91,7 +102,13 @@ function App(props) {
               <ListItemText primary="Cuenta Regresiva" />
             </ListItem>
           </Link>
+          {process.env.NODE_ENV === 'development' && <Link className={classes.link} onClick={() => localStorage.clear()}>
+            <ListItem button key={'Borrar localStorage'}>
+              <ListItemText primary="Borrar localStorage" />
+            </ListItem>
+          </Link>}
         </List>
+        <img src={incLogo} alt="INC Logo" className={classes.incLogoImg}/>
       </Drawer>
       <IconButton
         edge="start"
@@ -104,7 +121,9 @@ function App(props) {
       </IconButton>
       <div className={classes.page}>
         <Switch>
-          <Route path="/" exact component={AdventPage} />
+          <Route path="/" exact>
+            <Redirect to={`/adviento/${getTodayOrLatest()}`} />
+          </Route>
           <AdventRoute path="/adviento/:day">
             <AdventPage />
           </AdventRoute>
@@ -117,4 +136,35 @@ function App(props) {
   );
 }
 
-export default withStyles(styles)(App);
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+
+  return windowSize;
+}
+
+export default App;

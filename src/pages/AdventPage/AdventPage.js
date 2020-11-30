@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 
 import Gift from '../../components/Gift.js'
 
-import getAdvent, { TOTAL_DAYS, setLatestDay, DEC1, DEC25 } from '../../lib/adventApi';
+import getAdvent, { getOpenedDays, setLatestDay, TOTAL_DAYS, DEC1, DEC25 } from '../../lib/adventApi';
 import backgroundImage from '../../images/bg@2x.png';
 import navBgImage from '../../images/day-bg.png';
 import incLogo from '../../images/inc-logo.svg';
@@ -104,6 +104,8 @@ const BottomLink = styled('div')(
   ({
     isActive,
     isEven,
+    isOpened,
+    isDisabled,
   }) => ({
   ...isEven ? { 
     'backgroundColor': '#AB5166'
@@ -111,23 +113,33 @@ const BottomLink = styled('div')(
   ...isActive ? { 
     'backgroundColor': '#F3B02C'
   } : {},
+  ...isOpened ? {
+    'backgroundColor': 'rgba(0,0,0,0.7)'
+  } : {},
+  'pointerEvents': isDisabled ? 'none' : 'auto',
+  'touchAction': isDisabled ? 'none' : 'auto',
 }));
 
 const list = Array.from({length: TOTAL_DAYS}, (_, i) => i + 1);
 
+const scrollBottomNav = (day, el) => {
+  const windowWidth = window.innerWidth < CONTAINER_MAX_WIDTH ? window.innerWidth : CONTAINER_MAX_WIDTH;
+  el.current.scrollLeft = ((day - 1) * BOTTOM_NAV_ITEM_WIDTH) + (BOTTOM_NAV_ITEM_WIDTH / 2) - (windowWidth / 2);
+}
+
 function AdventPage (props) {
-  const { day } = useParams();
+  const params = useParams();
+  const day = Number(params.day);
   const botttomNavEl = useRef(null);
   const [ adventData, setAdventdata ] = useState(null);
   const [ isOpeningGift, setIsOpeningGift ] = useState(false);
-  const classes = useStyles(Number(day) || 1);
-  const date = day ? dayjs(`2020-12-${day}`) : null;
+  const classes = useStyles(day);
+  const date = dayjs(`2020-12-${day}`);
 
   useEffect(() => {
-    console.log('useEffect');
-    getAdvent(date).then(data => {
+    getAdvent(date, process.env.NODE_ENV === 'development').then(data => {
       setAdventdata(data);
-      botttomNavEl.current.scrollLeft = ((day - 1) * BOTTOM_NAV_ITEM_WIDTH) + (BOTTOM_NAV_ITEM_WIDTH / 2) - (CONTAINER_MAX_WIDTH / 2);
+      scrollBottomNav(day, botttomNavEl);
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ day ]);
@@ -149,19 +161,19 @@ function AdventPage (props) {
   }
 
   const handlers = useSwipeable({
-    onSwipedLeft: (eventData) => Number(day || 1) < DEC25 ? props.history.push(`/adviento/${Number(day || 1) + 1}`) : null,
-    onSwipedRight: (eventData) => Number(day || 1) > DEC1 ? props.history.push(`/adviento/${Number(day || 1) - 1}`) : null,
+    onSwipedLeft: (eventData) => !isOpeningGift && day < DEC25 ? props.history.push(`/adviento/${day + 1}`) : null,
+    onSwipedRight: (eventData) => !isOpeningGift && day > DEC1 ? props.history.push(`/adviento/${day - 1}`) : null,
     preventDefaultTouchmoveEvent: true,
     trackMouse: false
   });
 
   return <div className={classes.root}>
     <Container maxWidth="sm" classes={{ root: classes.container }} {...handlers}>
-      {!adventData && <p>Loader</p>}
+      {!adventData && <p>Cargando...</p>}
       {adventData && <div>
         <img src={incLogo} alt="INC Logo" className={classes.incLogoImg}/>
-        {Number(day || 1) !== DEC1 ? <Link to={`/adviento/${Number(day || 1) - 1}`} className={classes.arrowLeft}></Link> : null}
-        {Number(day || 1) !== DEC25 ? <Link to={`/adviento/${Number(day || 1) + 1}`} className={classes.arrowRight}></Link> : null }
+        {day !== DEC1 ? <Link to={isOpeningGift ? '#' : `/adviento/${day - 1}`} className={classes.arrowLeft}></Link> : null}
+        {day !== DEC25 ? <Link to={isOpeningGift ? '#' : `/adviento/${day + 1}`} className={classes.arrowRight}></Link> : null }
         <Typography variant="h1" component="h1">{ adventData.name }</Typography>
         <Typography variant="body1">
           {adventData.verse.text}
@@ -182,13 +194,26 @@ function AdventPage (props) {
       <Container maxWidth="sm" className={classes.bottomNavContainer}>
         <div value={day || '1'} className={classes.bottomNav} ref={botttomNavEl}>
           <div className={classes.bottomNavInner}>
-            {list.map(index => (
-              <BottomLink key={`day-${index}`} isActive={Number(index) === Number(day || 1)} isEven={Number(index) % 2 === 0} className={classes.bottomNavItem}>
+            {list.map(index => {
+              const openedDays = getOpenedDays();
+              const isActive = index === day;
+              const isEven = index % 2 === 0;
+              const isOpened = openedDays.indexOf(index) >= 0;
+              return (
+              <BottomLink
+                key={`day-${index}`}
+                isActive={isActive}
+                isEven={isEven}
+                isOpened={isOpened}
+                isDisabled={isOpeningGift}
+                className={classes.bottomNavItem}
+              >
                 <Link to={`/adviento/${index}`} className={classes.bottomNavLink}>
                   <p>{index}</p>
                 </Link>
               </BottomLink>
-            ))}
+            )}
+            )}
           </div>
         </div>
       </Container>
