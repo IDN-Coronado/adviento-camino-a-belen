@@ -49,7 +49,7 @@ const data = {
 			text: 'Después de su sufrimiento, verá la luz y quedará satisfecho; por su conocimiento mi siervo justo, justificará a muchos, y cargará con las iniquidades de ellos. Por lo tanto, le daré un puesto entre los grandes, y repartirá el botín con los fuertes, porque derramó su vida hasta la muerte, y fue contado entre los transgresores. Cargó con el pecado de muchos, e intercedió por los pecadores.',
 			location: 'Isaías 53:11-12'
 		},
-		challenge: 'Es un lindo tiempo para hacer manualidades navideñas en familias.',
+		challenge: 'Es un lindo tiempo para hacer manualidades navideñas en familia.',
 		gift: {
 			href: 'https://www.youtube.com/watch?v=GhEhMA20DvU&t=32s',
 			text: 'Acá te compartimos un video con algunas.',
@@ -77,7 +77,7 @@ const data = {
 			text: 'Pero tú, Belén Efrata, aunque eres pequeña entre las familias de Judá, de ti me saldrá el que ha de ser gobernante en Israel. Y sus orígenes son desde tiempos antiguos, desde los días de la eternidad.',
 			location: 'Miqueas 5:2'
 		},
-		challenge: 'Llama a algún adulto mayor o persona de la iglesia para conversar y si puedes, visitarle y dejarle un “cariñito”.',
+		challenge: 'Llama a algún adulto mayor o persona de la iglesia para conversar y si puedes, visítale y dejale un “cariñito”.',
 		gift: {
 			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/wallpaper_inc2.jpg?alt=media&token=06f265fd-ce3b-4335-9343-a4abc9037acb',
 			text: 'Aquí tienes otro fondo de pantalla'
@@ -88,7 +88,7 @@ const data = {
 		day: '7',
 		name: '7 Diciembre',
 		verse: {
-			text: '—El Espíritu Santo vendrá sobre ti, y el poder del Altísimo te cubrirá con su sombra. Así que al santo niño que va a nacer lo llamarán Hijo de Dios.',
+			text: 'El Espíritu Santo vendrá sobre ti, y el poder del Altísimo te cubrirá con su sombra. Así que al santo niño que va a nacer lo llamarán Hijo de Dios.',
 			location: 'Lucas 1:35'
 		},
 		challenge: 'Acá hay una idea linda para hacer lazos fáciles para decorar.',
@@ -105,7 +105,7 @@ const data = {
 			text: 'Dará a luz un hijo, y le pondrás por nombre Jesús, porque él salvará a su pueblo de sus pecados.',
 			location: 'Mateo 1:21'
 		},
-		challenge: 'Lee la historia del nacimiento de Jesús y coloreen un dibujo sobre la escena del nacimiento. Lc 2:1-20.',
+		challenge: 'Lee la historia del nacimiento de Jesús y coloreen un dibujo sobre la escena del nacimiento.',
 		gift: {
 			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Feliz%20navidad.pdf?alt=media&token=977dabd6-cadf-4215-91cb-1997015f809b',
 			text: 'Acá te dejamos unos para imprimir',
@@ -119,7 +119,7 @@ const data = {
 			text: 'Pero, cuando él estaba considerando hacerlo, se le apareció en sueños un ángel del Señor y le dijo: «José, hijo de David, no temas recibir a María por esposa, porque ella ha concebido por obra del Espíritu Santo.»',
 			location: 'Mateo 1:20'
 		},
-		challenge: 'Tómarse una foto navideña celebrando estas fechas',
+		challenge: 'Tómate una foto navideña celebrando estas fechas',
 		gift: {
 			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/wallpaper_inc3.jpg?alt=media&token=96bfbf9c-7d4e-497b-be63-b180b74f7680',
 			text: 'Aquí tienes otro fondo de pantalla'
@@ -217,8 +217,11 @@ const data = {
 			text: 'Los pastores regresaron glorificando y alabando a Dios por lo que habían visto y oído, pues todo sucedió tal como se les había dicho.',
 			location: 'Lucas 2:20'
 		},
-		challenge: 'Escribe tu testimonio, lo que Dios ha hecho por Dios y cómo el que haya nacido en tu corazón te ha cambiado y compártelo en tus redes sociales o por mensaje.',
-		gift: {},
+		challenge: 'Escribe tu testimonio, lo que Dios ha hecho por ti y cómo el que haya nacido en tu corazón te ha cambiado y compártelo en tus redes sociales o por mensaje.',
+		gift: {
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Tags%2F5.png?alt=media&token=25798b32-c1d1-471c-bacc-c01445f7021f',
+			text: 'Descarga una colilla de regalo más'
+		},
 	},
 	'2020-12-17': {
 		date: '2020-12-17',
@@ -243,7 +246,10 @@ const data = {
 			location: 'Mateo 2:2'
 		},
 		challenge: 'Si tienes la oportunidad de donar comida, ropa o dinero a los que necesitan, no lo dudes.',
-		gift: {},
+		gift: {
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/wallpaper_inc1.jpg?alt=media&token=8672a365-732c-4412-a260-d83221340af4',
+			text: 'Descarga un fondo de pantalla'
+		},
 	},
 	'2020-12-19': {
 		date: '2020-12-19',
@@ -268,7 +274,10 @@ const data = {
 			location: 'Gálatas 4:4-5'
 		},
 		challenge: 'Puedes salir a caminar al barrio a ver la decoración navideña de las diferentes casas y luego escoger la que más te gustó. No olvides decorar la tuya también.',
-		gift: {},
+		gift: {
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Tags%2F2.png?alt=media&token=ea6a064f-1825-4ad9-96c2-dd1171091392',
+			text: 'Descarga una colilla para tus regalos'
+		},
 	},
 	'2020-12-21': {
 		date: '2020-12-21',
@@ -295,7 +304,7 @@ const data = {
 		challenge: 'Para tus regalos navideños te dejamos esta colilla navideña',
 		gift: {
 			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Tags%2F3.png?alt=media&token=f72639bb-eeb0-46ce-853d-14272f6c470c',
-			text: 'Colillas'
+			text: 'Descarga una colilla'
 		},
 	},
 	'2020-12-23': {
@@ -320,7 +329,7 @@ const data = {
 			text: 'Yo les he dado la gloria que me diste, para que sean uno, así como nosotros somos uno: yo en ellos y tú en mí. Permite que alcancen la perfección en la unidad, y así el mundo reconozca que tú me enviaste y que los has amado a ellos tal como me has amado a mí.',
 			location: 'Juan 17:22-23'
 		},
-		challenge: 'Lea la siguiente historia navideña y piense ¿Qué tiene que ver Belén con vos? ¿Qué aporta ese nacimiento a mi vida?',
+		challenge: 'Lee la siguiente historia navideña y piense ¿Qué tiene que ver Belén contigo? ¿Qué aporta ese nacimiento a mi vida?',
 		gift: {
 			href: 'https://www.sigueme.net/mensajes-cristianos/me-encanta-la-navidad-mensaje-por-max-lucado',
 			text: 'No olvides compartir esta historia'
@@ -334,7 +343,7 @@ const data = {
 			text: 'El Cordero que fue inmolado es digno de tomar el poder, las riquezas, la sabiduría, la fortaleza, la honra, la gloria y la alabanza. Y a todo lo creado que está en el cielo, y sobre la tierra, y debajo de la tierra, y en el mar, y a todas las cosas que en ellos hay, oí decir: Al que está sentado en el trono, y al Cordero, sea la alabanza, la honra, la gloria y el poder, por los siglos de los siglos.',
 			location: 'Apocalipsis 5:12-13'
 		},
-		challenge: 'Este día hay muchas personas que están trabajando, ¿por qué no preparas unas galletas o un pancito o algo para ellos?  Cruz Roja, la clínica, bomberos, policía, etc.',
+		challenge: 'Este día hay muchas personas que están trabajando, ¿por qué no preparas unas galletas o un pancito o algo para ellos? Cruz Roja, la clínica, bomberos, policía, etc.',
 		gift: {
 			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Navidad%20es%20Emanuel%2C%20Dios%20con%20nosotros.png?alt=media&token=4ea9312d-da90-4299-8200-14fc496948c8',
 			text: 'Feliz Navidad'
