@@ -3,7 +3,6 @@ import { withStyles, styled } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-import giftImage from '../images/gift.png';
 import {ReactComponent as GiftSvg} from '../images/regalo-01.svg';
 
 const styles = {
@@ -12,6 +11,9 @@ const styles = {
 		background: 'none',
 		cursor: 'pointer',
 		position: 'relative',
+		outline: 'none',
+		userSelect: 'none',
+		'-webkit-tap-highlight-color': 'rgba(0,0,0,0)',
 		'&[disabled]': {
 			opacity: 0.5,
 			cursor: 'not-allowed',
@@ -26,13 +28,25 @@ const styles = {
 	buttonImg: {
 		width: '50%'
 	},
+	svgContainer: {
+		animation: 'Gift-not-opened 1s ease-in-out infinite'
+	},
 	giftSvg: {
 		width: '80%',
 		height: 'auto',
-		position: 'absolute',
-    left: '50%',
-    bottom: '0',
-    transform: 'translateX(-50%)'
+		marginTop: '-37%'
+	},
+	giftLink: {
+		color: '#103044',
+		backgroundColor: '#F3B02C',
+		padding: '.375rem 1.25rem',
+		borderRadius: '.3125rem',
+		marginTop: '1.25rem',
+		display: 'inline-block',
+		fontFamily: 'BrandonGrotesqueBold, Helvetica, Arial',
+		'&:hover': {
+			textDecoration: 'none'
+		}
 	}
 }
 
@@ -41,7 +55,7 @@ const AnimatedSvg = styled('div')(
     isOpening
   }) => ({
   ...isOpening ? { 
-    'opacity': '0.5'
+		'animation': 'none',
   } : {}
 }));
 
@@ -49,15 +63,15 @@ function Gift ({ classes, message, link, linkText, onGiftOpen, canOpen, isOpened
 	return isOpened ? (
 		<Fragment>
 			<Typography variant="body2" className={classes.mainText}>{ message }</Typography>
-			<Link variant="body2" color="secondary" href={link} target="_blank" rel="noreferrer">{linkText}</Link>
+			{linkText && <Link variant="body2" color="secondary" href={link} target="_blank" rel="noreferrer" className={classes.giftLink}>{linkText}</Link>}
 		</Fragment>) : (
 		<button className={classes.button} disabled={!canOpen} type="button" onClick={onGiftOpen}>
-			<AnimatedSvg isOpening={isOpening}>
+			<AnimatedSvg isOpening={isOpening} className={`${classes.svgContainer} ${isOpening ? "gift-animate" : ""}`}>
 				<GiftSvg className={classes.giftSvg}/>
 			</AnimatedSvg>
 			{!canOpen && <p>Todavía no puedes abrir esta sorpresa</p>}
 		</button>
 	);
-}
+}	
 
 export default withStyles(styles)(Gift);

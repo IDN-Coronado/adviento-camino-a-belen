@@ -15,6 +15,7 @@ import backgroundImage from '../../images/bg@2x.png';
 import navBgImage from '../../images/day-bg.png';
 
 const BOTTOM_NAV_ITEM_WIDTH = 60;
+const BOTTOM_NAV_ITEM_HEIGHT = 60;
 const CONTAINER_MAX_WIDTH = 600;
 
 const useStyles = makeStyles({
@@ -29,17 +30,41 @@ const useStyles = makeStyles({
     background: `url(${backgroundImage}) 0 0 no-repeat`,
     backgroundSize: 'cover',
   },
+  arrowLeft: {
+    width: '15px',
+    height: '15px',
+    position: 'absolute',
+    top: '50%',
+    left: '1.25rem',
+    transform: 'translateY(-50%) rotate(-45deg)',
+    border: '3px solid #ffffff',
+    borderWidth: '3px 0 0 3px',
+    userSelect: 'none',
+    '-webkit-tap-highlight-color': 'rgba(0,0,0,0)'
+  },
+  arrowRight: {
+    width: '15px',
+    height: '15px',
+    position: 'absolute',
+    top: '50%',
+    right: '1.25rem',
+    transform: 'translateY(-50%) rotate(45deg)',
+    border: '3px solid #ffffff',
+    borderWidth: '3px 3px 0 0',
+    userSelect: 'none',
+    '-webkit-tap-highlight-color': 'rgba(0,0,0,0)'
+  },
   bottomNavContainer: {
     position: 'absolute',
     bottom: 0,
     right: 0,
     left: 0,
     width: '100%',
-    height: 60,
+    height: BOTTOM_NAV_ITEM_HEIGHT,
     padding: 0,
   },
   bottomNav: {
-    height: 59,
+    height: BOTTOM_NAV_ITEM_HEIGHT,
     overflowX: 'scroll',
     overflowY: 'hidden'
   },
@@ -110,9 +135,9 @@ function AdventPage (props) {
           ...adventData.gift,
           isOpened: true,
         }
-      })
+      });
+      setIsOpeningGift(false);
     },2000);
-
   }
 
   const handlers = useSwipeable({
@@ -126,6 +151,8 @@ function AdventPage (props) {
     <Container maxWidth="sm" classes={{ root: classes.container }} {...handlers}>
       {!adventData && <p>Loader</p>}
       {adventData && <div>
+        {Number(day || 1) !== DEC1 ? <Link to={`/adviento/${Number(day || 1) - 1}`} className={classes.arrowLeft}></Link> : null}
+        {Number(day || 1) !== DEC25 ? <Link to={`/adviento/${Number(day || 1) + 1}`} className={classes.arrowRight}></Link> : null }
         <Typography variant="h1" component="h1">{ adventData.name }</Typography>
         <Typography variant="body1">
           {adventData.verse.text}
