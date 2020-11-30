@@ -1,3 +1,5 @@
+/* global firebase */
+
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, withRouter } from 'react-router-dom';
 import { makeStyles, styled } from '@material-ui/core/styles';
@@ -19,6 +21,10 @@ import activeStar from '../../images/active-star.png';
 const BOTTOM_NAV_ITEM_WIDTH = 60;
 const BOTTOM_NAV_ITEM_HEIGHT = 60;
 const CONTAINER_MAX_WIDTH = 600;
+const NAV_TYPES = {
+  ARROW: 'Arrow',
+  BOTTOM_LINK: 'Bottom Link',
+}
 
 const useStyles = makeStyles({
   root: {
@@ -141,6 +147,10 @@ function AdventPage (props) {
   const date = dayjs(`2020-12-${day}`);
 
   useEffect(() => {
+    firebase.analytics().logEvent('Page Load', {
+      name: 'Advent Page',
+      day
+    });
     getAdvent(date, process.env.NODE_ENV === 'development').then(data => {
       setAdventdata(data);
       scrollBottomNav(day, botttomNavEl);
@@ -151,6 +161,11 @@ function AdventPage (props) {
   const handleGiftOpen = () => {
     setLatestDay(adventData.day);
     setIsOpeningGift(true);
+
+    firebase.analytics().logEvent('Click', {
+      name: 'Open Gift',
+      day
+    });
 
     setTimeout(()=>{
       setAdventdata({
@@ -164,9 +179,46 @@ function AdventPage (props) {
     },2000);
   }
 
+  const onSwipedLeft = (eventData) => {
+    const targetDay = day + 1;
+
+    if (!isOpeningGift) {
+      firebase.analytics().logEvent('Swipe Page', {
+        name: 'Next Day',
+        targetDay,
+      });
+      goToDay(day < DEC25 ? targetDay : null)
+    }
+  }
+
+  const onSwipedRight = (eventData) => {
+    const targetDay = day - 1;
+
+    if (!isOpeningGift) {
+      firebase.analytics().logEvent('Swipe Page', {
+        name: 'Previous Day',
+        targetDay,
+      });
+      goToDay(day > DEC1 ? targetDay : null)
+    }
+  }
+
+  const goToDay = (day) => {
+    day && props.history.push(`/adviento/${day}`)
+  }
+
+  const onNavClick = (targetDay, type, direction) => {
+    if (!isOpeningGift) {
+      firebase.analytics().logEvent('Nav Item Click', {
+        name: `${ NAV_TYPES.ARROW === type ? direction : ''}${NAV_TYPES.ARROW === type ? ` ${type}` : type}`,
+        targetDay,
+      });
+    }
+  }
+
   const handlers = useSwipeable({
-    onSwipedLeft: (eventData) => !isOpeningGift && day < DEC25 ? props.history.push(`/adviento/${day + 1}`) : null,
-    onSwipedRight: (eventData) => !isOpeningGift && day > DEC1 ? props.history.push(`/adviento/${day - 1}`) : null,
+    onSwipedLeft,
+    onSwipedRight,
     preventDefaultTouchmoveEvent: true,
     trackMouse: false
   });
@@ -176,8 +228,16 @@ function AdventPage (props) {
       {!adventData && <p>Cargando...</p>}
       {adventData && <div>
         <img src={incLogo} alt="INC Logo" className={classes.incLogoImg}/>
-        {day !== DEC1 ? <Link to={isOpeningGift ? '#' : `/adviento/${day - 1}`} className={classes.arrowLeft}></Link> : null}
-        {day !== DEC25 ? <Link to={isOpeningGift ? '#' : `/adviento/${day + 1}`} className={classes.arrowRight}></Link> : null }
+        {day !== DEC1 ? <Link
+          to={isOpeningGift ? '#' : `/adviento/${day - 1}`}
+          className={classes.arrowLeft}
+          onClick={() => onNavClick(day - 1, NAV_TYPES.ARROW, 'Left')}
+        /> : null}
+        {day !== DEC25 ? <Link
+          to={isOpeningGift ? '#' : `/adviento/${day + 1}`}
+          className={classes.arrowRight}
+          onClick={() => onNavClick(day + 1, NAV_TYPES.ARROW, 'Right')}
+        /> : null }
         <Typography variant="h1" component="h1">{ adventData.name }</Typography>
         <Typography variant="body1">
           {adventData.verse.text}
@@ -189,6 +249,7 @@ function AdventPage (props) {
           linkText={adventData.gift.text}
           isOpened={adventData.gift.isOpened}
           canOpen={adventData.gift.canOpen}
+          download={adventData.gift.download}
           onGiftOpen={handleGiftOpen}
           isOpening={isOpeningGift}
         />
@@ -212,7 +273,7 @@ function AdventPage (props) {
                 isDisabled={isOpeningGift}
                 className={classes.bottomNavItem}
               >
-                <Link to={`/adviento/${index}`} className={classes.bottomNavLink}>
+                <Link to={`/adviento/${index}`} className={classes.bottomNavLink} onClick={() => onNavClick(index, NAV_TYPES.BOTTOM_LINK)}>
                   <p>{index}</p>
                 </Link>
               </BottomLink>

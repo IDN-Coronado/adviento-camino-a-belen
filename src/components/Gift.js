@@ -59,11 +59,18 @@ const AnimatedSvg = styled('div')(
   } : {}
 }));
 
-function Gift ({ classes, message, link, linkText, onGiftOpen, canOpen, isOpened = false, isOpening = false }) {
+function Gift ({ classes, message, link, linkText, onGiftOpen, canOpen, download, isOpened = false, isOpening = false }) {
 	return isOpened ? (
 		<Fragment>
 			<Typography variant="body2" className={classes.mainText}>{ message }</Typography>
-			{linkText && <Link variant="body2" color="secondary" href={link} target="_blank" rel="noreferrer" className={classes.giftLink}>{linkText}</Link>}
+			{linkText && <Link
+				variant="body2"
+				color="secondary"
+				href={link}
+				target="_blank"
+				rel="noreferrer"
+				className={classes.giftLink}
+			>{linkText}</Link>}
 		</Fragment>) : (
 		<button className={classes.button} disabled={!canOpen} type="button" onClick={onGiftOpen}>
 			<AnimatedSvg isOpening={isOpening} className={`${classes.svgContainer} ${isOpening ? "gift-animate" : ""}`}>

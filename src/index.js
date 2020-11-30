@@ -1,3 +1,5 @@
+/* global firebase */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
@@ -7,6 +9,26 @@ import { ThemeProvider } from '@material-ui/styles';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+const apiKey = process.env.REACT_APP_API_KEY;
+const projectId = process.env.REACT_APP_PROJECT_ID;
+const messagingSenderId = process.env.REACT_APP_MESSAGING_SENDER_ID;
+const appId = process.env.REACT_APP_APP_ID;
+const measurementId = process.env.REACT_APP_MEASUREMENT_ID;
+
+const firebaseConfig = {
+  apiKey,
+  authDomain: `${projectId}.firebaseapp.com`,
+  databaseURL: `https://${projectId}.firebaseio.com`,
+  projectId,
+  storageBucket: `${projectId}.appspot.com`,
+  messagingSenderId,
+  appId,
+  measurementId,
+};
+
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 const theme = createMuiTheme({
   palette: {

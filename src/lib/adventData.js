@@ -7,10 +7,10 @@ const data = {
 			text: 'El pueblo que andaba en la oscuridad ha visto una gran luz; sobre los que vivían en densas tinieblas la luz ha resplandecido. Tú has hecho que la nación crezca; has aumentado su alegría. Y se alegran ellos en tu presencia como cuando recogen la cosecha, como cuando reparten el botín.',
 			location: 'Isaías 9:2-3'
 		},
-		challenge: 'Comparte una tarjeta navideña con una persona. Puedes hacerla o buscar una.',
+		challenge: 'Acá te dejamos un fondo de pantalla para que uses en tu celular.',
 		gift: {
-			href: 'https://drive.google.com/file/d/1sFz4dBV4smghYbZ3NPjHNM9qoSYeWVsw/view?usp=sharing',
-			text: 'Acá te dejamos una',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/wallpaper_oficial.png?alt=media&token=72fece9e-ba94-4934-82e4-5f45f774d432',
+			text: 'Fondo de pantalla',
 		}
 	},
 	'2020-12-02': {
@@ -21,10 +21,10 @@ const data = {
 			text: 'Porque nos ha nacido un niño, se nos ha concedido un hijo; la soberanía reposará sobre sus hombros, y se le darán estos nombres: Consejero admirable, Dios fuerte, Padre eterno, Príncipe de paz.',
 			location: 'Isaías 9:6'
 		},
-		challenge: 'Acá te dejamos unos fondos de pantalla para que uses en tu celular.',
+		challenge: 'Comparte una tarjeta navideña con una persona. Puedes hacerla o buscar una.',
 		gift: {
-			href: 'https://drive.google.com/drive/folders/1Iz7XcmnkzkzU1DJhf7Wsk5ObUMW0x1Fp?usp=sharing',
-			text: 'Fondo de pantalla',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Poema%20del%20Basto%CC%81n%20de%20Navidad.png?alt=media&token=059e1e02-55ae-41f7-a18e-a3b76b10b399',
+			text: 'Acá te dejamos una',
 		}
 	},
 	'2020-12-03': {
@@ -37,7 +37,7 @@ const data = {
 		},
 		challenge: 'No olvides esta semana orar por aquellos que necesitan.',
 		gift: {
-			href: 'https://drive.google.com/file/d/1eqpyNHbkvuhxpSfgphlloVH4z--WbMAn/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Lista%20de%20oracio%CC%81n.png?alt=media&token=75ba3f44-58bd-4900-99da-f7e34612186d',
 			text: 'Te dejamos una lista de oración',
 		}
 	},
@@ -46,7 +46,7 @@ const data = {
 		day: '4',
 		name: '4 Diciembre',
 		verse: {
-			text: 'Después de su sufrimiento, verá la luz y quedará satisfecho; por su conocimiento mi siervo justo justificará a muchos, y cargará con las iniquidades de ellos. Por lo tanto, le daré un puesto entre los grandes, y repartirá el botín con los fuertes, porque derramó su vida hasta la muerte, y fue contado entre los transgresores. Cargó con el pecado de muchos, e intercedió por los pecadores.',
+			text: 'Después de su sufrimiento, verá la luz y quedará satisfecho; por su conocimiento mi siervo justo, justificará a muchos, y cargará con las iniquidades de ellos. Por lo tanto, le daré un puesto entre los grandes, y repartirá el botín con los fuertes, porque derramó su vida hasta la muerte, y fue contado entre los transgresores. Cargó con el pecado de muchos, e intercedió por los pecadores.',
 			location: 'Isaías 53:11-12'
 		},
 		challenge: 'Es un lindo tiempo para hacer manualidades navideñas en familias.',
@@ -60,7 +60,7 @@ const data = {
 		day: '5',
 		name: '5 Diciembre',
 		verse: {
-			text: 'Porque de tal manera amó Dios al mundo, que dio a su Hijo unigénito, para que todo aquel que cree en El, no se pierda, mas tenga vida eterna.',
+			text: 'Porque de tal manera amó Dios al mundo, que dio a su Hijo unigénito, para que todo aquel que cree en Él, no se pierda, mas tenga vida eterna.',
 			location: 'Juan 3:16'
 		},
 		challenge: 'Te compartimos esta lista de música navideña de Youtube para que las escuches.',
@@ -78,7 +78,10 @@ const data = {
 			location: 'Miqueas 5:2'
 		},
 		challenge: 'Llama a algún adulto mayor o persona de la iglesia para conversar y si puedes, visitarle y dejarle un “cariñito”.',
-		gift: {},
+		gift: {
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/wallpaper_inc2.jpg?alt=media&token=06f265fd-ce3b-4335-9343-a4abc9037acb',
+			text: 'Aquí tienes otro fondo de pantalla'
+		},
 	},
 	'2020-12-07': {
 		date: '2020-12-07',
@@ -99,12 +102,12 @@ const data = {
 		day: '8',
 		name: '8 Diciembre',
 		verse: {
-			text: 'Dará a luz un hijo, y le pondrás por nombre Jesús,porque él salvará a su pueblo de sus pecados.',
+			text: 'Dará a luz un hijo, y le pondrás por nombre Jesús, porque él salvará a su pueblo de sus pecados.',
 			location: 'Mateo 1:21'
 		},
 		challenge: 'Lee la historia del nacimiento de Jesús y coloreen un dibujo sobre la escena del nacimiento. Lc 2:1-20.',
 		gift: {
-			href: 'https://drive.google.com/file/d/1wbRsRnC06g-YgZpHAvFbV5MEokTzAk-_/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Feliz%20navidad.pdf?alt=media&token=977dabd6-cadf-4215-91cb-1997015f809b',
 			text: 'Acá te dejamos unos para imprimir',
 		}
 	},
@@ -117,7 +120,10 @@ const data = {
 			location: 'Mateo 1:20'
 		},
 		challenge: 'Tómarse una foto navideña celebrando estas fechas',
-		gift: {},
+		gift: {
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/wallpaper_inc3.jpg?alt=media&token=96bfbf9c-7d4e-497b-be63-b180b74f7680',
+			text: 'Aquí tienes otro fondo de pantalla'
+		},
 	},
 	'2020-12-10': {
 		date: '2020-12-10',
@@ -129,7 +135,7 @@ const data = {
 		},
 		challenge: 'Mándale una nota a alguna persona agradeciéndole su trabajo y cuanto le aprecias.',
 		gift: {
-			href: 'https://drive.google.com/file/d/1DCFtjBvvoO-mR0es1jmSS43wlR30DsiK/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Gracias.png?alt=media&token=6e6d52df-1733-4cc8-bdc0-f03dc5468bd8',
 			text: 'Acá te dejamos una plantilla'
 		}
 	},
@@ -141,8 +147,11 @@ const data = {
 			text: 'Pero el ángel les dijo: «No tengan miedo. Miren que les traigo buenas noticias que serán motivo de mucha alegría para todo el pueblo».',
 			location: 'Lucas 2:10'
 		},
-		challenge: 'Puedes ver tu película navideña favorita',
-		gift: {},
+		challenge: 'Puedes ver tu película navideña favorita o maratón de películas navideñas.',
+		gift: {
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Tags%2F1.png?alt=media&token=72a738df-4f15-4a43-9da8-0aa366cfb271',
+			text: 'También te regalamos una colilla para tus regalos'
+		},
 	},
 	'2020-12-12': {
 		date: '2020-12-12',
@@ -154,7 +163,7 @@ const data = {
 		},
 		challenge: 'Llévale un regalo o detalle a los vecinos con un mensaje sobre Jesús.',
 		gift: {
-			href: 'https://drive.google.com/file/d/1UPze8FK-LBHmX3U7sFAEZ5KBvuLlKjfT/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/juan%20316.png?alt=media&token=0613d147-a6c6-4537-b53b-20faaa885bde',
 			text: 'Acá te dejamos una idea'
 		}
 	},
@@ -168,7 +177,7 @@ const data = {
 		},
 		challenge: 'Cocina alguna sencilla receta para compartir.',
 		gift: {
-			href: 'https://drive.google.com/file/d/1hOo5xJpOp0-A6oiibYt6rgYsf4v17bJP/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/juan%20316.png?alt=media&token=0613d147-a6c6-4537-b53b-20faaa885bde',
 			text: 'Acá les dejamos esta de galletas'
 		},
 	},
@@ -181,7 +190,10 @@ const data = {
 			location: 'Lucas 2:14'
 		},
 		challenge: 'Escribe una nota para cada persona de tu casa, deseándoles cosas buenas y recordándoles que Dios les ama.',
-		gift: {}
+		gift: {
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Tags%2F4.png?alt=media&token=c061210f-962b-4548-bf1f-e8edb31ce119',
+			text: 'Otra colilla para que descargues',
+		}
 	},
 	'2020-12-15': {
 		date: '2020-12-15',
@@ -193,7 +205,7 @@ const data = {
 		},
 		challenge: 'Jueguen un juego en familia.',
 		gift: {
-			href: 'https://drive.google.com/file/d/1IH2EAAi2Rf1__gvLRD8E95UiEBqRz66O/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Christmas%20Bingo%20Printable.pdf?alt=media&token=ebabee09-321d-4a84-983f-5f0790b24b00',
 			text: 'Acá te dejamos un bingo por si lo quieres imprimir.'
 		},
 	},
@@ -218,7 +230,7 @@ const data = {
 		},
 		challenge: '¿Cuánto sabes del nacimiento de Jesús?',
 		gift: {
-			href: 'https://drive.google.com/file/d/1NQS9IgOPf0eA_G7506KBjPtzd_LRW9YO/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Christmas%20Bingo%20Printable.pdf?alt=media&token=ebabee09-321d-4a84-983f-5f0790b24b00',
 			text: ' Llena esta sopa de letras.'
 		},
 	},
@@ -243,7 +255,7 @@ const data = {
 		},
 		challenge: '¿Puedes encontrar todos los objetos?',
 		gift: {
-			href: 'https://drive.google.com/file/d/1NyWX9YtbXw8pRwLizZ_M-44k_1MkjB4i/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/I-Spy-Christmas.jpg?alt=media&token=380187cd-b4a9-4827-b7b8-c857d21bb569',
 			text: 'Búscalos acá'
 		},
 	},
@@ -255,11 +267,8 @@ const data = {
 			text: 'Pero cuando vino la plenitud del tiempo, Dios envió a su Hijo, nacido de mujer, nacido bajo la ley, a fin de que redimiera a los que estaban bajo la ley, para que recibiéramos la adopción de hijos.',
 			location: 'Gálatas 4:4-5'
 		},
-		challenge: 'XXXXXXX',
-		gift: {
-			href: 'XXXXXX',
-			text: 'XXXX'
-		},
+		challenge: 'Puedes salir a caminar al barrio a ver la decoración navideña de las diferentes casas y luego escoger la que más te gustó. No olvides decorar la tuya también.',
+		gift: {},
 	},
 	'2020-12-21': {
 		date: '2020-12-21',
@@ -271,7 +280,7 @@ const data = {
 		},
 		challenge: 'Para estos fríos te regalamos esta receta sencilla.',
 		gift: {
-			href: 'https://drive.google.com/file/d/11NnnjtjwFJ1Mk8c3CDkKe8aKOjSLF94R/view?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/chocolate%20caliente.png?alt=media&token=9c6be8cb-613b-4ed9-9bf8-ae4bf7dca311',
 			text: 'Chocolate caliente'
 		},
 	},
@@ -283,9 +292,9 @@ const data = {
 			text: '...así como Cristo amó a la iglesia y se entregó por ella para hacerla santa. Él la purificó, lavándola con agua mediante la palabra, para presentársela a sí mismo como una iglesia radiante, sin mancha ni arruga ni ninguna otra imperfección, sino santa e intachable. ',
 			location: 'Efesios 5:25-27'
 		},
-		challenge: 'Para tus regalos navideños te dejamos estas colillas navideñas',
+		challenge: 'Para tus regalos navideños te dejamos esta colilla navideña',
 		gift: {
-			href: 'https://drive.google.com/drive/folders/1XZNGzfCNHmWmyA6QPgX86BGM1HIlOx4P?usp=sharing',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Tags%2F3.png?alt=media&token=f72639bb-eeb0-46ce-853d-14272f6c470c',
 			text: 'Colillas'
 		},
 	},
@@ -325,10 +334,10 @@ const data = {
 			text: 'El Cordero que fue inmolado es digno de tomar el poder, las riquezas, la sabiduría, la fortaleza, la honra, la gloria y la alabanza. Y a todo lo creado que está en el cielo, y sobre la tierra, y debajo de la tierra, y en el mar, y a todas las cosas que en ellos hay, oí decir: Al que está sentado en el trono, y al Cordero, sea la alabanza, la honra, la gloria y el poder, por los siglos de los siglos.',
 			location: 'Apocalipsis 5:12-13'
 		},
-		challenge: 'XXXXXX',
+		challenge: 'Este día hay muchas personas que están trabajando, ¿por qué no preparas unas galletas o un pancito o algo para ellos?  Cruz Roja, la clínica, bomberos, policía, etc.',
 		gift: {
-			href: 'XXXXXX',
-			text: 'XXXXXXXX'
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Navidad%20es%20Emanuel%2C%20Dios%20con%20nosotros.png?alt=media&token=4ea9312d-da90-4299-8200-14fc496948c8',
+			text: 'Feliz Navidad'
 		},
 	},
 };

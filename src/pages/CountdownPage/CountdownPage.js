@@ -1,3 +1,5 @@
+/* global firebase */
+
 import React, { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -90,6 +92,9 @@ function CountdownPage (props) {
   const { classes } = props;
 
   useEffect(() => {
+    firebase.analytics().logEvent('Page Load', {
+      name: 'Countdown Page',
+    });
     const interval = setInterval(() => {
       setState(getTimeToXMas(dayjs()))
     }, 1000);
