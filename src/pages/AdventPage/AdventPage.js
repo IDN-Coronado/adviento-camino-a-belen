@@ -14,6 +14,7 @@ import getAdvent, { getOpenedDays, setLatestDay, TOTAL_DAYS, DEC1, DEC25 } from 
 import backgroundImage from '../../images/bg@2x.png';
 import navBgImage from '../../images/day-bg.png';
 import incLogo from '../../images/inc-logo.svg';
+import activeStar from '../../images/active-star.png';
 
 const BOTTOM_NAV_ITEM_WIDTH = 60;
 const BOTTOM_NAV_ITEM_HEIGHT = 60;
@@ -85,7 +86,9 @@ const useStyles = makeStyles({
     color: '#ffffff',
     textDecoration: 'none',
     fontFamily: 'BrandonGrotesqueRegular, Helvetica, Arial',
-    fontSize: '1.5625rem'
+    fontSize: '1.5625rem',
+    userSelect: 'none',
+    '-webkit-tap-highlight-color': 'rgba(0,0,0,0)'
   },
   bottomNavInner: (day) => ({
     display: 'flex',
@@ -111,10 +114,11 @@ const BottomLink = styled('div')(
     'backgroundColor': '#AB5166'
   } : {}, 
   ...isActive ? { 
-    'backgroundColor': '#F3B02C'
+    'backgroundImage': `url(${activeStar}), url(${navBgImage})`,
+    'backgroundSize': 'cover' 
   } : {},
   ...isOpened ? {
-    'backgroundColor': 'rgba(0,0,0,0.7)'
+    'backgroundColor': '#224A57'
   } : {},
   'pointerEvents': isDisabled ? 'none' : 'auto',
   'touchAction': isDisabled ? 'none' : 'auto',
