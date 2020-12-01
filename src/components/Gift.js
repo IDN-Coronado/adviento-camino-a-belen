@@ -2,6 +2,14 @@ import React, { Fragment } from 'react';
 import { withStyles, styled } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import {
+	FacebookShareButton,
+  FacebookIcon,
+	TwitterShareButton,
+  TwitterIcon,
+	WhatsappShareButton,
+  WhatsappIcon,
+} from 'react-share';
 
 import {ReactComponent as GiftSvg} from '../images/regalo-01.svg';
 
@@ -47,6 +55,13 @@ const styles = {
 		'&:hover': {
 			textDecoration: 'none'
 		}
+	},
+	shareText: {
+		marginTop: '15px'
+	},
+	shareButtons: {
+		outline: 'none',
+		marginRight: '15px',
 	}
 }
 
@@ -59,10 +74,21 @@ const AnimatedSvg = styled('div')(
   } : {}
 }));
 
-function Gift ({ classes, message, link, linkText, onGiftOpen, canOpen, download, isOpened = false, isOpening = false }) {
+function Gift ({
+	classes,
+	message,
+	link,
+	linkText,
+	onGiftOpen,
+	canOpen,
+	download,
+	url,
+	isOpened = false,
+	isOpening = false
+}) {
 	return isOpened ? (
 		<Fragment>
-			<Typography variant="body2" className={classes.mainText}>{ message }</Typography>
+			<Typography variant="body2">{ message }</Typography>
 			{linkText && <Link
 				variant="body2"
 				color="secondary"
@@ -71,6 +97,32 @@ function Gift ({ classes, message, link, linkText, onGiftOpen, canOpen, download
 				rel="noreferrer"
 				className={classes.giftLink}
 			>{linkText}</Link>}
+			<div>
+				<Typography variant="body2" className={classes.shareText}>Comparte</Typography>
+				<FacebookShareButton
+					url={url}
+					quote={`Ya completé el reto de hoy: "${message}"`}
+					hashtag="#caminoaBelenIDNCoro"
+					className={classes.shareButtons}
+				>
+					<FacebookIcon size={32} borderRadius={13} />
+				</FacebookShareButton>
+				<TwitterShareButton
+					url={url}
+					title={`Ya completé el reto de hoy: "${message}"`}
+					hashtags={['caminoABelenIDNCoro']}
+					className={classes.shareButtons}
+				>
+					<TwitterIcon size={32} borderRadius={13} />
+				</TwitterShareButton>
+				<WhatsappShareButton
+					url={url}
+					title={`Ya completé el reto de hoy: "${message}"`}
+					separator=" "
+				>
+					<WhatsappIcon size={32} borderRadius={13} />
+				</WhatsappShareButton>
+			</div>
 		</Fragment>) : (
 		<button className={classes.button} disabled={!canOpen} type="button" onClick={onGiftOpen}>
 			<AnimatedSvg isOpening={isOpening} className={`${classes.svgContainer} ${isOpening ? "gift-animate" : ""}`}>

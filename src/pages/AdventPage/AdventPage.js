@@ -25,6 +25,7 @@ const NAV_TYPES = {
   ARROW: 'Arrow',
   BOTTOM_LINK: 'Bottom Link',
 }
+const BASE_URL = 'https://caminoabelen.nazarenocoronado.com';
 
 const useStyles = makeStyles({
   root: {
@@ -252,6 +253,7 @@ function AdventPage (props) {
           download={adventData.gift.download}
           onGiftOpen={handleGiftOpen}
           isOpening={isOpeningGift}
+          url={`${BASE_URL}${props.location.pathname}`}
         />
       </div>}
     </Container>
