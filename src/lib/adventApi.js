@@ -60,8 +60,8 @@ const getAdvent = (day, isDevelopmentMode) => {
 	return import('./adventData')
 		.then(data => {
 			const adventData = data.default[dateKey];
-			const latestDay = getLatestDay();
-			const isOpened = latestDay === Number(adventData.day);
+			const openedDays = getOpenedDays();
+			const isOpened = openedDays.indexOf(Number(adventData.day)) >= 0;
 			adventData.gift.isOpened = isOpened;
 			adventData.gift.canOpen = isDevelopmentMode || (!(today.isBefore(firstDay, 'day') || today.isAfter(lastDay, 'day')) && (requiredDate.isBefore(today, 'day') || requiredDate.isSame(today, 'day')));
 			return adventData;
