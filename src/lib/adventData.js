@@ -177,7 +177,7 @@ const data = {
 		},
 		challenge: 'Cocina alguna sencilla receta para compartir.',
 		gift: {
-			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/juan%20316.png?alt=media&token=0613d147-a6c6-4537-b53b-20faaa885bde',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Receta%20Galletas%20-Navi.png?alt=media&token=48a08094-77e6-4a3f-9a2c-808dbfff6da0',
 			text: 'Acá les dejamos esta de galletas'
 		},
 	},
@@ -233,7 +233,7 @@ const data = {
 		},
 		challenge: '¿Cuánto sabes del nacimiento de Jesús?',
 		gift: {
-			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Christmas%20Bingo%20Printable.pdf?alt=media&token=ebabee09-321d-4a84-983f-5f0790b24b00',
+			href: 'https://firebasestorage.googleapis.com/v0/b/adviento-camino-a-belen.appspot.com/o/Sopa%20de%20Letras%20Navi.png?alt=media&token=75d7bd9e-6ad0-472c-a02e-a5b2ab1dadd4',
 			text: ' Llena esta sopa de letras.'
 		},
 	},

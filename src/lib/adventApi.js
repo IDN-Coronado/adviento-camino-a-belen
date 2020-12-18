@@ -17,11 +17,6 @@ export const setLatestDay = day => {
 
 export const getOpenedDays = () => JSON.parse(localStorage.getItem('latestDay')) || [];
 
-const getLatestDay = () => {
-	const savedData = JSON.parse(localStorage.getItem('latestDay')) || [];
-	return savedData.reduce((a, v) => (Number(v) > Number(a)) ? Number(v) : Number(a), 0);
-};
-
 const getFirstUnopenedDay = () => {
 	const openedDays = getOpenedDays();
 	let i = 0;
