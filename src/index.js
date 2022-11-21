@@ -51,11 +51,13 @@ const theme = createMuiTheme({
       fontFamily: 'BrandonGrotesqueBold, Helvetica, Arial',
       display: 'block',
       marginTop: '.625rem',
-      color: '#db778f'
+      color: '#db778f',
+      fontSize: '1.25rem',
     },
     body1: {
       lineHeight: '1.2em',
       marginBottom: '2.1875rem',
+      fontSize: '1.5rem',
       '@media only screen and (max-width: 350px)': {
         lineHeight: '1.1em',
         fontSize: '1rem'
@@ -64,6 +66,8 @@ const theme = createMuiTheme({
     body2: {
       lineHeight: '1.2em',
       marginBottom: '0.625rem',
+      fontSize: '1.125rem',
+      color: '#cbcbcb',
       '@media only screen and (max-width: 350px)': {
         lineHeight: '1.1em',
         fontSize: '1rem'
@@ -73,6 +77,7 @@ const theme = createMuiTheme({
       fontFamily: 'WreathHalftone, Helvetica, Arial',
       color: '#f3b02c',
       fontSize: '3.65rem',
+      marginBottom: '1rem',
       '@media only screen and (max-width: 350px)': {
         fontSize: '3rem'
       }

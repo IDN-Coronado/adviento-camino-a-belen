@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
-const firstDay = dayjs('2020-12-01');
-const lastDay = dayjs('2020-12-25');
+const firstDay = dayjs('2022-12-01');
+const lastDay = dayjs('2022-12-25');
 
 export const DATE_FORMAT = 'YYYY-MM-DD';
 export const TOTAL_DAYS = 25;

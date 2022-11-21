@@ -15,7 +15,7 @@ import Gift from '../../components/Gift.js'
 import getAdvent, { getOpenedDays, setLatestDay, TOTAL_DAYS, DEC1, DEC25 } from '../../lib/adventApi';
 import backgroundImage from '../../images/bg@2x.png';
 import navBgImage from '../../images/day-bg.png';
-import incLogo from '../../images/inc-logo.svg';
+// import incLogo from '../../images/inc-logo.svg';
 import activeStar from '../../images/active-star.png';
 
 const BOTTOM_NAV_ITEM_WIDTH = 60;
@@ -25,7 +25,7 @@ const NAV_TYPES = {
   ARROW: 'Arrow',
   BOTTOM_LINK: 'Bottom Link',
 }
-const BASE_URL = 'https://caminoabelen.nazarenocoronado.com';
+const BASE_URL = process.env.NODE_ENV !== 'production' ? 'http://localhost:3001' : 'https://caminoabelen.nazarenocoronado.com';
 
 const useStyles = makeStyles({
   root: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
   container: {
     height: '100%',
-    padding: '4.375rem 2.875em',
+    padding: '2.375rem 2.875em',
     background: `url(${backgroundImage}) 0 0 no-repeat`,
     backgroundSize: 'cover',
   },
@@ -107,6 +107,12 @@ const useStyles = makeStyles({
     top: '.75rem',
     width: '4.6875rem',
     height: 'auto'
+  },
+  verse: ({ verse }) => {
+    if (verse.length > 150) {
+      return { fontSize: '1.125rem' }
+    }
+    return {};
   }
 });
 
@@ -144,8 +150,9 @@ function AdventPage (props) {
   const botttomNavEl = useRef(null);
   const [ adventData, setAdventdata ] = useState(null);
   const [ isOpeningGift, setIsOpeningGift ] = useState(false);
-  const classes = useStyles(day);
-  const date = dayjs(`2020-12-${day}`);
+  const verse = (adventData && adventData.verse && adventData.verse.text) || '';
+  const classes = useStyles({ verse });
+  const date = dayjs(`2022-12-${day}`);
 
   useEffect(() => {
     firebase.analytics().logEvent('Page Load', {
@@ -177,7 +184,7 @@ function AdventPage (props) {
         }
       });
       setIsOpeningGift(false);
-    },2000);
+    }, 1300);
   }
 
   const onSwipedLeft = (eventData) => {
@@ -228,7 +235,7 @@ function AdventPage (props) {
     <Container maxWidth="sm" classes={{ root: classes.container }} {...handlers}>
       {!adventData && <p>Cargando...</p>}
       {adventData && <div>
-        <img src={incLogo} alt="INC Logo" className={classes.incLogoImg}/>
+        {/*<img src={incLogo} alt="INC Logo" className={classes.incLogoImg}/>*/}
         {day !== DEC1 ? <Link
           to={isOpeningGift ? '#' : `/adviento/${day - 1}`}
           className={classes.arrowLeft}
@@ -240,7 +247,7 @@ function AdventPage (props) {
           onClick={() => onNavClick(day + 1, NAV_TYPES.ARROW, 'Right')}
         /> : null }
         <Typography variant="h1" component="h1">{ adventData.name }</Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" className={classes.verse}>
           {adventData.verse.text}
           <Typography variant="subtitle2" component="span">{ adventData.verse.location }</Typography>
         </Typography>
