@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
-import { withStyles, styled } from '@material-ui/core/styles';
+import React, { Fragment, createRef } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { Player } from "@lottiefiles/react-lottie-player";
+
 import {
 	FacebookShareButton,
   FacebookIcon,
@@ -11,7 +13,6 @@ import {
   WhatsappIcon,
 } from 'react-share';
 
-import {ReactComponent as GiftSvg} from '../images/regalo-01.svg';
 
 const styles = {
 	button: {
@@ -21,6 +22,7 @@ const styles = {
 		position: 'relative',
 		outline: 'none',
 		userSelect: 'none',
+		transform: 'translateY(-60px)',
 		'-webkit-tap-highlight-color': 'rgba(0,0,0,0)',
 		'&[disabled]': {
 			opacity: 0.5,
@@ -65,15 +67,6 @@ const styles = {
 	}
 }
 
-const AnimatedSvg = styled('div')(
-  ({
-    isOpening
-  }) => ({
-  ...isOpening ? { 
-		'animation': 'none',
-  } : {}
-}));
-
 function Gift ({
 	classes,
 	message,
@@ -81,11 +74,16 @@ function Gift ({
 	linkText,
 	onGiftOpen,
 	canOpen,
-	download,
 	url,
 	isOpened = false,
 	isOpening = false
 }) {
+	const player = createRef();
+
+	const handleGiftOpen = () => {
+		player.current.play();
+		onGiftOpen();
+	}
 	return isOpened ? (
 		<Fragment>
 			<Typography variant="body2">{ message }</Typography>
@@ -124,10 +122,14 @@ function Gift ({
 				</WhatsappShareButton>
 			</div>
 		</Fragment>) : (
-		<button className={classes.button} disabled={!canOpen} type="button" onClick={onGiftOpen}>
-			<AnimatedSvg isOpening={isOpening} className={`${classes.svgContainer} ${isOpening ? "gift-animate" : ""}`}>
-				<GiftSvg className={classes.giftSvg}/>
-			</AnimatedSvg>
+		<button className={classes.button} disabled={!canOpen} type="button" onClick={handleGiftOpen}>
+			<Player
+				src="https://assets10.lottiefiles.com/packages/lf20_083h7wcs.json"
+				background="transparent"
+				speed="1"
+				style={{ width: '300px', height: '300px' }}
+				ref={player}
+			/>
 			{!canOpen && <p>Todavía no puedes abrir esta sorpresa</p>}
 		</button>
 	);

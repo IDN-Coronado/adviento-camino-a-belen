@@ -73,7 +73,7 @@ const MINUTES = 60;
 const SECONDS = 60;
 
 const getTimeToXMas = (time) => {
-  const xmas = dayjs('2020-12-25');
+  const xmas = dayjs('2022-12-25');
   const days = xmas.diff(time, 'd');
   const hours = Math.abs(days * HOURS - xmas.diff(time, 'h'));
   const minutes = Math.abs((days * HOURS + hours) * MINUTES - xmas.diff(time, 'm'));
