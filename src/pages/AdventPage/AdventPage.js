@@ -109,9 +109,12 @@ const useStyles = makeStyles({
     height: 'auto'
   },
   verse: ({ verse }) => {
-    if (verse.length > 150) {
+    if (verse.length > 150 && verse.length <= 250) {
       return { fontSize: '1.125rem' }
-    }
+    } 
+    if (verse.length > 250) {
+      return { fontSize: '1rem' }
+    } 
     return {};
   }
 });
