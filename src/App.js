@@ -11,6 +11,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import AdventPage from './pages/AdventPage/AdventPage';
 import CountdownPage from './pages/CountdownPage/CountdownPage';
+import ContactPage from './pages/ContactPage/ContactPage';
 import Page404 from './pages/404/404'
 
 import { DEC1, DEC25, getTodayOrLatest } from './lib/adventApi';
@@ -43,6 +44,15 @@ const useStyles = makeStyles({
   link: {
     textDecoration: 'none',
     color: '#fff',
+    '&:visited, &:active': {
+      color: '#fff'
+    }
+  },
+  devLink: {
+    textDecoration: 'none',
+    color: '#fff',
+    background: 'none',
+    border: 'none',
     '&:visited, &:active': {
       color: '#fff'
     }
@@ -94,19 +104,24 @@ function App(props) {
         <List>
           <Link to="/" className={classes.link} onClick={toggleDrawer}>
             <ListItem button key={'Adviento'}>
-              <ListItemText primary="Adviento" className={classes.navItem}/>
+              <ListItemText primary="Adviento" className={classes.navItem} />
             </ListItem>
           </Link>
           <Link to="/cuenta-regresiva" className={classes.link} onClick={toggleDrawer}>
             <ListItem button key={'Cuenta regresiva'}>
-              <ListItemText primary="Cuenta Regresiva" />
+              <ListItemText primary="Cuenta Regresiva" className={classes.navItem} />
             </ListItem>
           </Link>
-          {process.env.NODE_ENV === 'development' && <Link className={classes.link} onClick={() => localStorage.clear()}>
+          <Link to="/contacto" className={classes.link} onClick={toggleDrawer}>
+            <ListItem button key={'Contacto'}>
+              <ListItemText primary="Contacto" />
+            </ListItem>
+          </Link>
+          {process.env.NODE_ENV === 'development' && <button className={classes.devLink} onClick={() => localStorage.clear()}>
             <ListItem button key={'Borrar localStorage'}>
               <ListItemText primary="Borrar localStorage" />
             </ListItem>
-          </Link>}
+          </button>}
         </List>
         <img src={incLogo} alt="INC Logo" className={classes.incLogoImg}/>
       </Drawer>
@@ -128,6 +143,7 @@ function App(props) {
             <AdventPage />
           </AdventRoute>
           <Route path="/cuenta-regresiva" exact component={CountdownPage} />
+          <Route path="/contacto" exact component={ContactPage} />
           <Route path="/404" exact component={Page404} />
           <Redirect from="*" to="404" />
         </Switch>
