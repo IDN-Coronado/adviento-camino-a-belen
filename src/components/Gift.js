@@ -22,7 +22,7 @@ const styles = {
 		position: 'relative',
 		outline: 'none',
 		userSelect: 'none',
-		transform: 'translateY(-60px)',
+		transform: 'translateY(-70px)',
 		'-webkit-tap-highlight-color': 'rgba(0,0,0,0)',
 		'&[disabled]': {
 			opacity: 0.5,
@@ -38,8 +38,8 @@ const styles = {
 	buttonImg: {
 		width: '50%'
 	},
-	svgContainer: {
-		animation: 'Gift-not-opened 1s ease-in-out infinite'
+	nonOpened: {
+		animation: 'Gift-shake 1s ease-in-out infinite'
 	},
 	giftSvg: {
 		width: '80%',
@@ -122,12 +122,12 @@ function Gift ({
 				</WhatsappShareButton>
 			</div>
 		</Fragment>) : (
-		<button className={classes.button} disabled={!canOpen} type="button" onClick={handleGiftOpen}>
+		<button className={`${classes.button} ${!isOpening && classes.nonOpened}`} disabled={!canOpen} type="button" onClick={handleGiftOpen}>
 			<Player
 				src="https://assets10.lottiefiles.com/packages/lf20_083h7wcs.json"
 				background="transparent"
 				speed="1"
-				style={{ width: '300px', height: '300px' }}
+				style={{ width: '100%', height: '300px' }}
 				ref={player}
 			/>
 			{!canOpen && <p>Todavía no puedes abrir esta sorpresa</p>}
