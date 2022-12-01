@@ -107,7 +107,7 @@ function Gift ({
 				<FacebookShareButton
 					url={url}
 					quote={`Ya completé el reto de hoy: "${message}"`}
-					hashtag="#caminoaBelenIDNCoro"
+					hashtag="#caminoaBelenIDNSigueme"
 					className={classes.shareButtons}
 				>
 					<FacebookIcon size={32} borderRadius={13} />
@@ -115,7 +115,7 @@ function Gift ({
 				<TwitterShareButton
 					url={url}
 					title={`Ya completé el reto de hoy: "${message}"`}
-					hashtags={['caminoABelenIDNCoro']}
+					hashtags={['caminoABelenIDNSigueme']}
 					className={classes.shareButtons}
 				>
 					<TwitterIcon size={32} borderRadius={13} />
