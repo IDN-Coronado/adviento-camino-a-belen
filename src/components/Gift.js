@@ -64,6 +64,13 @@ const styles = {
 	shareButtons: {
 		outline: 'none',
 		marginRight: '15px',
+	},
+	cannotOpenMessage: {
+		transform: 'translateY(-40px)',
+		fontSize: '1.125rem',
+		maxWidth: '170px',
+    margin: '0 auto',
+		color: '#ccc'
 	}
 }
 
@@ -130,7 +137,7 @@ function Gift ({
 				style={{ width: '100%', height: '300px' }}
 				ref={player}
 			/>
-			{!canOpen && <p>Todavía no puedes abrir esta sorpresa</p>}
+			<p className={classes.cannotOpenMessage}>{!canOpen ? 'Todavía no puedes abrir esta sorpresa' : 'Ya puedes abrir tu sorpresa'}</p>
 		</button>
 	);
 }	

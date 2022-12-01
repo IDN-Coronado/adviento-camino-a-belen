@@ -100,7 +100,7 @@ function App(props) {
         onClose={() => toggleDrawer(false)}
         classes={{ paper: classes.paper }}
       >
-        <img src={drawerImage} alt="Santa y su reno" className={classes.drawer} />
+        <img src={drawerImage} alt="Camino a Belen logo" className={classes.drawer} />
         <List>
           <Link to="/" className={classes.link} onClick={toggleDrawer}>
             <ListItem button key={'Adviento'}>

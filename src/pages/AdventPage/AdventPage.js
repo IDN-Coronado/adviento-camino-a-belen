@@ -40,8 +40,8 @@ const useStyles = makeStyles({
     backgroundSize: 'cover',
   },
   arrowLeft: {
-    width: '15px',
-    height: '15px',
+    width: '25px',
+    height: '25px',
     position: 'absolute',
     top: '50%',
     left: '1.25rem',
@@ -52,8 +52,8 @@ const useStyles = makeStyles({
     '-webkit-tap-highlight-color': 'rgba(0,0,0,0)'
   },
   arrowRight: {
-    width: '15px',
-    height: '15px',
+    width: '25px',
+    height: '25px',
     position: 'absolute',
     top: '50%',
     right: '1.25rem',

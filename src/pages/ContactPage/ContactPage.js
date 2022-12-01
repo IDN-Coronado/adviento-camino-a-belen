@@ -19,7 +19,7 @@ const styles = {
     height: '100%',
     padding: '4.375rem 2.875em',
     background: `url(${backgroundImage}) 0 0 no-repeat #1b304f`,
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     '@media only screen and (min-width: 470px)': {
       background: `url(${backgroundImage}) 0 bottom no-repeat #1b304f`,
       backgroundSize: 'cover',
